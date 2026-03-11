@@ -4,7 +4,7 @@ const session = require('express-session')
 const passport = require('passport')
 const pool = require('./db/pool') 
 const pgStore = require('connect-pg-simple')(session)
-const routes = require('./routes')
+const indexRouter = require('./routes/indexRoutes')
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -62,7 +62,7 @@ app.use(passport.session())
  * -------------- ROUTES ----------------
  */
 
-app.use(routes)
+app.use('/', indexRouter)
 
 /**
  * -------------- SERVER ----------------
