@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Main content-->
+    <main class="main">
+      <div class="signup">
+        <h2>Sign Up</h2>
+        <form class="form" action="/sign-up" method="POST">
+          <div class="form__control">
+            <label for="username">Username or Email</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="Username"
+              type="text"
+              autocomplete="username"
+              required />
+          </div>
+          <div class="form__control">
+            <label for="firstName">First Name</label>
+            <input
+              name="firstName"
+              id="firstName"
+              type="text"
+              placeholder="First Name"
+              autocomplete="given-name" />
+          </div>
+          <div class="form__control">
+            <label for="lastName">Last Name</label>
+            <input
+              name="lastName"
+              id="lastName"
+              type="text"
+              placeholder="Last Name"
+              autocomplete="family-name" />
+          </div>
+          <div class="form__control">
+            <label for="password">Password</label>
+            <ul class="password-requirements">
+              <li>At least 8 characters</li>
+              <li>One uppercase letter (A-Z)</li>
+              <li>One number (0-9)</li>
+              <li>One special character (!@#$%^&*)</li>
+            </ul>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              autocomplete="new-password"
+              required />
+          </div>
+          <div class="form__control">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm password"
+              pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              autocomplete="new-password"
+              required />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

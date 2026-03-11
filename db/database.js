@@ -7,12 +7,12 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(255) UNIQUE NOT NULL,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
     hash TEXT NOT NULL,
     salt TEXT NOT NULL,
-    is_member BOOLEAN NOT NULL DEFAULT false,
-    is_admin BOOLEAN NOT NULL DEFAULT false
+    isMember BOOLEAN NOT NULL DEFAULT false,
+    isAdmin BOOLEAN NOT NULL DEFAULT false
 );
 
 -- Messages table
@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
-    date_added TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    author_id INTEGER NOT NULL,
+    dateAdded TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    authorId INTEGER NOT NULL,
     CONSTRAINT fk_user
-		  FOREIGN KEY (author_id)
+		  FOREIGN KEY (authorId)
 			REFERENCES users (id)
 			ON DELETE CASCADE
 );
