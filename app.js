@@ -2,11 +2,9 @@ const express = require('express')
 const path = require('node:path')
 const session = require('express-session')
 const passport = require('passport')
-const pool = require('./db/pool')
+const pool = require('./db/pool') 
 const pgStore = require('connect-pg-simple')(session)
 const routes = require('./routes')
-
-
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -17,7 +15,6 @@ require('dotenv').config()
 
 // Create express app
 const app = express()
-
 
 // EJS setup
 app.set('views', path.join(__dirname, 'views'))
@@ -60,7 +57,6 @@ app.use(
 require('./config/passport')
 // app.use(passport.initialize());
 app.use(passport.session())
-
 
 /**
  * -------------- ROUTES ----------------
