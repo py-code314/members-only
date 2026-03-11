@@ -1,8 +1,12 @@
 const express = require('express')
 const path = require('node:path')
 const session = require('express-session')
+const passport = require('passport')
 const pool = require('./db/pool')
 const pgStore = require('connect-pg-simple')(session)
+const routes = require('./routes')
+
+
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -48,6 +52,25 @@ app.use(
     cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 1 day
   }),
 )
+
+/**
+ * -------------- PASSPORT AUTHENTICATION ----------------
+ */
+
+require('./config/passport')
+// app.use(passport.initialize());
+app.use(passport.session())
+
+
+/**
+ * -------------- ROUTES ----------------
+ */
+
+app.use(routes)
+
+/**
+ * -------------- SERVER ----------------
+ */
 
 // Port to listen on
 const PORT = process.env.PORT || 3000
