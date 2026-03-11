@@ -5,6 +5,7 @@ const passport = require('passport')
 const pool = require('./db/pool') 
 const pgStore = require('connect-pg-simple')(session)
 const indexRouter = require('./routes/indexRoutes')
+const signUpRouter = require('./routes/signUpRoutes')
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -63,6 +64,7 @@ app.use(passport.session())
  */
 
 app.use('/', indexRouter)
+app.use('/signUp', signUpRouter)
 
 /**
  * -------------- SERVER ----------------
