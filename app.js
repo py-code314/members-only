@@ -1,10 +1,19 @@
+const express = require('express')
+const path = require('node:path')
+const session = require('express-session')
+const pool = require('./db/pool')
+const pgStore = require('connect-pg-simple')(session)
+
+/**
+ * -------------- GENERAL SETUP ----------------
+ */
+
 // Import dotenv
 require('dotenv').config()
 
 // Create express app
-const express = require('express')
 const app = express()
-const path = require('node:path')
+
 
 // EJS setup
 app.set('views', path.join(__dirname, 'views'))
@@ -17,6 +26,28 @@ app.use(express.static(assetsPath))
 // Middleware to process request body
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+/**
+ * -------------- SESSION SETUP ----------------
+ */
+
+// Create session store
+const sessionStore = new pgStore({
+  pool: pool, // Connection pool
+  tableName: 'sessions',
+  createTableIfMissing: true,
+})
+
+// Create session object
+app.use(
+  session({
+    store: sessionStore,
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 1 day
+  }),
+)
 
 // Port to listen on
 const PORT = process.env.PORT || 3000
