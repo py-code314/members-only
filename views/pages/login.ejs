@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Main content-->
+    <main class="main">
+      <div class="login">
+        <h2>Log In</h2>
+        <!-- Show errors -->
+        <% if(locals.errors) { %>
+          <%- include('../partials/errors.ejs') %>
+        <% }  %>
+        
+        <form class="form" action="/logIn" method="POST">
+          <div class="form__control">
+            <label for="username">Username or Email</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="Username"
+              type="text"
+              autocomplete="username"
+              value="<%= locals.user?.username || '' %>"
+              required
+               />
+          </div>
+          <div class="form__control">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+               />
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
