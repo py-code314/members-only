@@ -75,7 +75,16 @@ async function sign_up_get(req, res) {
 const sign_up_post = [
   validateUser,
 
+  
+
   async (req, res, next) => {
+    const { username, firstName, lastName, password } = req.body
+    const userData = {
+      username: username,
+      firstName: firstName,
+      lastName: lastName
+    }
+
     // Validate request
     const errors = validationResult(req)
 
@@ -83,14 +92,14 @@ const sign_up_post = [
     if (!errors.isEmpty()) {
       return res.status(400).render('pages/signUp', {
         title: 'Sign Up',
-        user: req.body,
+        user: userData,
         errors: errors.array(),
       })
     }
 
     try {
-      const { username, firstName, lastName } = req.body
-      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      // const { username, firstName, lastName } = req.body
+      const hashedPassword = await bcrypt.hash(password, 10)
       
       await addUser(username, firstName, lastName, hashedPassword)
 
