@@ -6,7 +6,7 @@ const {
   validationResult,
   matchedData,
 } = require('express-validator')
-const { findUserByUsername } = require('../db/queries/users')
+const { findUserByUsername, addUser } = require('../db/queries/users')
 
 /* Error messages */
 const emptyErr = 'can not be empty.'
@@ -25,7 +25,6 @@ const validateUser = [
     .bail()
     .custom(async (username) => {
       const user = await findUserByUsername(username)
-      console.log("🚀 ~ user:", user)
       if (user) {
         throw new Error(`Username ${existsErr}`)
       }
@@ -79,7 +78,6 @@ const sign_up_post = [
   async (req, res, next) => {
     // Validate request
     const errors = validationResult(req)
-    console.log("🚀 ~ errors:", errors)
 
     // Show errors if validation fails
     if (!errors.isEmpty()) {
@@ -91,15 +89,15 @@ const sign_up_post = [
     }
 
     try {
+      const { username, firstName, lastName } = req.body
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
-      const {username, firstName, lastName, password} = req.body
-      await addUser(username, hashedPassword, firstName, lastName, password)
       
+      await addUser(username, firstName, lastName, hashedPassword)
+
       res.redirect('/logIn')
     } catch (err) {
       console.error(err)
       return next(err)
-      
     }
   },
 ]
