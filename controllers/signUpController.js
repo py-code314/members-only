@@ -78,7 +78,8 @@ const sign_up_post = [
   
 
   async (req, res, next) => {
-    const { username, firstName, lastName, password } = req.body
+    // Get form data except password
+    const { username, firstName, lastName } = req.body
     const userData = {
       username: username,
       firstName: firstName,
@@ -87,6 +88,7 @@ const sign_up_post = [
 
     // Validate request
     const errors = validationResult(req)
+    console.log("🚀 ~ errors:", errors)
 
     // Show errors if validation fails
     if (!errors.isEmpty()) {
@@ -98,14 +100,14 @@ const sign_up_post = [
     }
 
     try {
-      // const { username, firstName, lastName } = req.body
+      // Get validated form data
+      const { username, firstName, lastName, password } = matchedData(req)
       const hashedPassword = await bcrypt.hash(password, 10)
       
       await addUser(username, firstName, lastName, hashedPassword)
 
       res.redirect('/logIn')
     } catch (err) {
-      console.error(err)
       return next(err)
     }
   },

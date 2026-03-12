@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('node:path')
 const session = require('express-session')
 const passport = require('passport')
-const pool = require('./db/pool') 
+const pool = require('./db/pool')
 const pgStore = require('connect-pg-simple')(session)
 const indexRouter = require('./routes/indexRoutes')
 const signUpRouter = require('./routes/signUpRoutes')
@@ -65,6 +65,30 @@ app.use(passport.session())
 
 app.use('/', indexRouter)
 app.use('/signUp', signUpRouter)
+
+/**
+ * -------------- ERROR HANDLER MIDDLEWARE ----------------
+ */
+
+app.use((err, req, res, next) => {
+  console.error(err)
+
+  // Error data
+  const errorCode = err.statusCode || 500
+  const errorTitle = err.title || 'Transmission Interrupted'
+  let errorMessage = err.message
+  if (err.code === '42601') {
+    errorMessage =
+      'The Cipher has been scrambled. Our agents are currently investigating the breach.'
+  }
+
+  res.status(errorCode).render('pages/error', {
+    title: 'Error',
+    errorCode,
+    errorTitle,
+    errorMessage,
+  })
+})
 
 /**
  * -------------- SERVER ----------------
