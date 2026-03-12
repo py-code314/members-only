@@ -3,6 +3,10 @@ const { Client } = require('pg')
 const { argv } = require('node:process')
 
 const SQL = `
+/* DEVELOPMENT PURPOSE ONLY */
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
+
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -10,7 +14,6 @@ CREATE TABLE IF NOT EXISTS users (
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     hash TEXT NOT NULL,
-    salt TEXT NOT NULL,
     isMember BOOLEAN NOT NULL DEFAULT false,
     isAdmin BOOLEAN NOT NULL DEFAULT false
 );

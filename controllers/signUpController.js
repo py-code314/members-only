@@ -1,4 +1,5 @@
 /* Imports */
+const bcrypt = require('bcryptjs')
 const {
   body,
   query,
@@ -53,6 +54,10 @@ const validateUser = [
     .matches(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/)
     .withMessage(`Password ${invalidErr}`),
   body('confirmPassword')
+    .trim()
+    .notEmpty()
+    .withMessage(`Confirm Password ${emptyErr}`)
+    .bail()
     .custom((password, { req }) => {
       return password === req.body.password
     })
@@ -66,5 +71,36 @@ async function sign_up_get(req, res) {
   })
 }
 
+/* Validate and add new user */
+const sign_up_post = [
+  validateUser,
 
-module.exports = { sign_up_get }
+  async (req, res, next) => {
+    // Validate request
+    const errors = validationResult(req)
+    console.log("🚀 ~ errors:", errors)
+
+    // Show errors if validation fails
+    if (!errors.isEmpty()) {
+      return res.status(400).render('pages/signUp', {
+        title: 'Sign Up',
+        user: req.body,
+        errors: errors.array(),
+      })
+    }
+
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      const {username, firstName, lastName, password} = req.body
+      await addUser(username, hashedPassword, firstName, lastName, password)
+      
+      res.redirect('/logIn')
+    } catch (err) {
+      console.error(err)
+      return next(err)
+      
+    }
+  },
+]
+
+module.exports = { sign_up_get, sign_up_post }
