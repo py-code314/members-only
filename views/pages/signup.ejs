@@ -10,6 +10,7 @@
     <main class="main">
       <div class="signup">
         <h2>Sign Up</h2>
+        <%- include('../partials/errors.ejs') %>
         <form class="form" action="/signUp" method="POST">
           <div class="form__control">
             <label for="username">Username or Email</label>

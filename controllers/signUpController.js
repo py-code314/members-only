@@ -25,6 +25,7 @@ const validateUser = [
     .bail()
     .custom(async (username) => {
       const user = await findUserByUsername(username)
+      console.log("🚀 ~ user:", user)
       if (user) {
         throw new Error(`Username ${existsErr}`)
       }
