@@ -9,7 +9,7 @@ const signUpRouter = require('./routes/signUpRoutes')
 const logInRouter = require('./routes/logInRoutes')
 const homeRouter = require('./routes/homeRoutes')
 const logOutRouter = require('./routes/logOutRoutes')
-const messageRouter = require('./routes/messageRoutes')
+const messageRouter = require('./routes/messagesRoutes')
 
 
 /**
