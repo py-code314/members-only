@@ -10,7 +10,13 @@
   <!-- Menu -->
   <ul class="menu">
     <li class="menu__item">Message Board</li>
-    <li class="menu__item"><a class="menu__link" href="/logIn">Log In</a></li>
-    <li class="menu__item"><a class="menu__link" href="/signUp">Sign Up</a></li>
+    <% if(locals.user) { %>
+      <li class="menu__item"><a class="menu__link" href=""><%= user.username %></a></li>
+      <li class="menu__item"><a class="menu__link" href="/logOut">Log Out</a></li>
+    <% } else { %>
+      <li class="menu__item"><a class="menu__link" href="/logIn">Log In</a></li>
+      <li class="menu__item"><a class="menu__link" href="/signUp">Sign Up</a></li>
+    <% } %>
+    
   </ul>
 </header>
