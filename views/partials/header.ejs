@@ -12,7 +12,11 @@
     <li class="menu__item">Message Board</li>
     <% if(locals.user) { %>
       <li class="menu__item"><a class="menu__link" href=""><%= user.username %></a></li>
-      <li class="menu__item"><a class="menu__link" href="/logOut">Log Out</a></li>
+      <li>
+        <form action="/logOut" method="post">
+          <button class="logout" type="submit">Log Out</button>
+        </form>
+			</li>
     <% } else { %>
       <li class="menu__item"><a class="menu__link" href="/logIn">Log In</a></li>
       <li class="menu__item"><a class="menu__link" href="/signUp">Sign Up</a></li>
