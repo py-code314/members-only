@@ -1,8 +1,8 @@
 const express = require('express')
 const indexRouter = express.Router()
-const home_page_get  = require('../controllers/indexController')
+const index_page_get  = require('../controllers/indexController')
 
-// Homepage route
-indexRouter.get('/', home_page_get)
+// Index page route
+indexRouter.get('/', index_page_get)
 
 module.exports = indexRouter

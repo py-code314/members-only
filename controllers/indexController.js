@@ -1,8 +1,8 @@
-/* Show home page */
-async function home_page_get(req, res) {
+/* Show index page */
+async function index_page_get(req, res) {
   res.render('pages/index', {
-    title: 'Home',
+    title: 'Index',
   })
 }
 
-module.exports = home_page_get 
+module.exports = index_page_get 
