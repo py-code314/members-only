@@ -2,7 +2,6 @@
 const bcrypt = require('bcryptjs')
 const {
   body,
-  query,
   validationResult,
   matchedData,
 } = require('express-validator')
@@ -75,8 +74,6 @@ async function sign_up_get(req, res) {
 const sign_up_post = [
   validateUser,
 
-  
-
   async (req, res, next) => {
     // Get form data except password
     const { username, firstName, lastName } = req.body
@@ -88,7 +85,6 @@ const sign_up_post = [
 
     // Validate request
     const errors = validationResult(req)
-    console.log("🚀 ~ errors:", errors)
 
     // Show errors if validation fails
     if (!errors.isEmpty()) {
