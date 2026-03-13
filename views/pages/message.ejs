@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Main content-->
+    <main class="main">
+      <div class="message">
+        <h2>New Message</h2>
+        <!-- Show errors -->
+        <% if(locals.errors) { %>
+          <%- include('../partials/errors.ejs') %>
+        <% }  %>
+        
+        <form class="form" action="/create" method="POST">
+          <div class="form__control">
+            <label for="title">Title</label>
+            <input
+              id="title"
+              name="title"
+              placeholder="Title"
+              type="text"
+              value="<%= locals.message?.title || '' %>"
+              autofocus
+              required
+               />
+          </div>
+          <div class="form__control">
+            <label for="content">Message</label>
+            <textarea
+              name="content"
+              id="content"
+              rows="5"
+              cols="30"
+              placeholder="Type your message here..."
+              value="<%= locals.message?.content || '' %>"
+              required ></textarea>
+          </div>
+          <button type="submit">Add Message</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
