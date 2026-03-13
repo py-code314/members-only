@@ -4,6 +4,7 @@ const {
   body,
   validationResult,
   matchedData,
+  oneOf,
 } = require('express-validator')
 const { findUserByUsername, addUser } = require('../db/queries/users')
 
@@ -23,10 +24,19 @@ const validateUser = [
     .withMessage(`Username ${emptyErr}`)
     .bail()
     .custom(async (username) => {
+      if (username.includes('@')) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        if (!emailRegex.test(username)) {
+          throw new Error('Please enter a valid email address.')
+        }
+      }
+
       const user = await findUserByUsername(username)
       if (user) {
         throw new Error(`Username ${existsErr}`)
       }
+
+      return true
     }),
   body('firstName')
     .trim()
@@ -80,7 +90,7 @@ const sign_up_post = [
     const userData = {
       username: username,
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
     }
 
     // Validate request
@@ -99,7 +109,7 @@ const sign_up_post = [
       // Get validated form data
       const { username, firstName, lastName, password } = matchedData(req)
       const hashedPassword = await bcrypt.hash(password, 10)
-      
+
       await addUser(username, firstName, lastName, hashedPassword)
 
       res.redirect('/logIn')

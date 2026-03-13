@@ -13,21 +13,19 @@ const validateLogIn = [
 /* Show log in page */
 async function log_in_get(req, res) {
   const messages = req.session.messages || []
-  const errors = messages.map(message => ({msg: message}))
+  const errors = messages.map((message) => ({ msg: message }))
   req.session.messages = []
 
   res.render('pages/logIn', {
     title: 'Log In',
-    errors
+    errors,
   })
 }
 
 /* Validate log in data */
 const log_in_post = [
-  validateLogIn, 
+  validateLogIn,
   async (req, res, next) => {
-    
-
     // Validate request
     const errors = validationResult(req)
 
@@ -35,17 +33,13 @@ const log_in_post = [
     if (!errors.isEmpty()) {
       return res.status(400).render('pages/logIn', {
         title: 'Log In',
-        user: {username: req.body.username},
+        user: { username: req.body.username },
         errors: errors.array(),
       })
     }
 
     next()
-  }
+  },
 ]
 
-
-
-
-
-module.exports = { log_in_get, log_in_post,  }
+module.exports = { log_in_get, log_in_post }
