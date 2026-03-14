@@ -9,7 +9,7 @@ const signUpRouter = require('./routes/signUpRoutes')
 const logInRouter = require('./routes/logInRoutes')
 const homeRouter = require('./routes/homeRoutes')
 const logOutRouter = require('./routes/logOutRoutes')
-const messageRouter = require('./routes/messagesRoutes')
+const messagesRouter = require('./routes/messagesRoutes')
 
 
 /**
@@ -73,7 +73,7 @@ app.use('/signUp', signUpRouter)
 app.use('/logIn', logInRouter)
 app.use('/home', homeRouter)
 app.use('/logOut', logOutRouter)
-app.use('/create', messageRouter)
+app.use('/messages', messagesRouter)
 
 /**
  * -------------- ERROR HANDLER MIDDLEWARE ----------------

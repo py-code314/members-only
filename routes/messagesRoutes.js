@@ -1,9 +1,9 @@
 const express = require('express')
-const messageRouter = express.Router()
+const messagesRouter = express.Router()
 const { message_get, message_post } = require('../controllers/messagesController')
 
 // New message routes
-messageRouter.get('/', message_get)
-// messageRouter.post('/', message_post)
+messagesRouter.get('/new', message_get)
+messagesRouter.post('/new', message_post)
 
-module.exports = messageRouter
+module.exports = messagesRouter
