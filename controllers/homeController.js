@@ -3,7 +3,7 @@ async function home_page_get(req, res) {
   // console.log('user:', req.user)
   res.render('pages/home', {
     title: 'Home',
-    user: req.user
+    // user: req.user
   })
 }
 

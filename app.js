@@ -68,6 +68,11 @@ app.use(passport.session())
  * -------------- ROUTES ----------------
  */
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user
+  next()
+})
+
 app.use('/', indexRouter)
 app.use('/signUp', signUpRouter)
 app.use('/logIn', logInRouter)

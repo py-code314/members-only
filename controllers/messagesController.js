@@ -1,5 +1,6 @@
 /* Imports */
 const { body, validationResult, matchedData } = require('express-validator')
+const addMessage = require('../db/queries/messages')
 
 /* Error messages */
 const emptyErr = 'can not be empty.'
@@ -14,7 +15,7 @@ const validateMessage = [
 async function message_get(req, res) {
   res.render('pages/message', {
     title: 'New Message',
-    user: req.user
+    // user: req.user
   })
 }
 
@@ -39,6 +40,7 @@ const message_post = [
         title: 'New Message',
         message: msgData,
         errors: errors.array(),
+        // user: req.user
       })
     }
 
@@ -46,6 +48,7 @@ const message_post = [
       // Get validated form data
       const { title, content } = matchedData(req)
       const userId = req.user.id
+      console.log("🚀 ~ userId:", userId)
 
       await addMessage(title, content, userId)
 
