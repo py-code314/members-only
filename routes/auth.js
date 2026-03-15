@@ -8,4 +8,13 @@ const isAuth = (req, res, next) => {
   }
 }
 
-module.exports = {isAuth}
+const authenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    req.session.messages = ['You must be an operative to join the club.']
+    res.redirect('/logIn')
+  }
+}
+
+module.exports = { isAuth, authenticated }

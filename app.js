@@ -10,6 +10,7 @@ const logInRouter = require('./routes/logInRoutes')
 const homeRouter = require('./routes/homeRoutes')
 const logOutRouter = require('./routes/logOutRoutes')
 const messagesRouter = require('./routes/messagesRoutes')
+const clubRouter = require('./routes/clubRoutes')
 
 
 /**
@@ -79,6 +80,7 @@ app.use('/logIn', logInRouter)
 app.use('/home', homeRouter)
 app.use('/logOut', logOutRouter)
 app.use('/messages', messagesRouter)
+app.use('/club', clubRouter)
 
 /**
  * -------------- ERROR HANDLER MIDDLEWARE ----------------
