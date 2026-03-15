@@ -10,8 +10,9 @@
   <!-- Menu -->
   <ul class="menu">
     <li class="menu__item">Message Board</li>
+    <li><a class="menu__link" href="/messages/new">New Message</a></li>
     <% if(locals.currentUser) { %>
-      <li><a class="menu__link" href="/messages/new">New Message</a></li>
+      
       <li class="menu__item"><a class="menu__link" href=""><%= currentUser.username %></a></li>
       <li>
         <form action="/logOut" method="post">
