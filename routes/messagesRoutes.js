@@ -5,6 +5,6 @@ const {isAuth} = require('../routes/auth')
 
 // New message routes
 messagesRouter.get('/new', isAuth, message_get) // protected route
-messagesRouter.post('/new', message_post)
+messagesRouter.post('/new',isAuth, message_post)
 
 module.exports = messagesRouter

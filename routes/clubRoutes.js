@@ -8,6 +8,6 @@ const {  authenticated } = require('../routes/auth')
 
 // New message routes
 clubRouter.get('/', authenticated, club_get) // protected route
-// clubRouter.post('/new', club_post)
+clubRouter.post('/', authenticated, club_post)
 
 module.exports = clubRouter

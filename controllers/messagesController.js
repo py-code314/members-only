@@ -5,7 +5,7 @@ const addMessage = require('../db/queries/messages')
 /* Error messages */
 const emptyErr = 'can not be empty.'
 
-/* Validate log in data */
+/* Validate login data */
 const validateMessage = [
   body('title').trim().notEmpty().withMessage(`Title ${emptyErr}`),
   body('content').trim().notEmpty().withMessage(`Message ${emptyErr}`),

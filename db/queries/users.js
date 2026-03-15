@@ -17,4 +17,10 @@ async function addUser(username, firstName, lastName, hashedPassword) {
   )
 }
 
-module.exports = { findUserByUsername, addUser }
+/* Update user's member status */
+async function updateMemberStatus(id) {
+  await pool.query(
+    "UPDATE users SET isMember = $1 WHERE id = $2", [true, id]
+  )
+}
+module.exports = { findUserByUsername, addUser, updateMemberStatus }
