@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Main content-->
+    <main class="main">
+      <div class="club">
+        <h2>Join The Inner Circle</h2>
+        <!-- Show errors -->
+        <% if(locals.errors) { %>
+          <%- include('../partials/errors.ejs') %>
+        <% }  %>
+        
+        <form class="form" action="/club" method="POST">
+          <div class="form__control">
+            <label for="secret">Enter your secret code</label>
+            <input
+              id="secret"
+              name="secret"
+              placeholder="Secret code..."
+              type="password"
+              required
+              autofocus
+               />
+          </div>
+          <div class="form__control">
+            <input
+              id="show"
+              type="checkbox"
+              onclick="showSecret()"
+               />
+            <label for="show">Show secret</label>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+    <script>
+      function showSecret() {
+        const secret = document.querySelector('#secret')
+        if(secret.type === 'password') {
+          secret.type = 'text'
+        } else {
+          secret.type = 'password'
+        }
+      }
+    </script>
+  </body>
+</html>
