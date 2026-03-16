@@ -17,11 +17,11 @@
         
         <form class="form" action="/club" method="POST">
           <div class="form__control">
-            <label for="secret">Enter your secret code</label>
+            <label for="passphrase">Enter secret passphrase</label>
             <input
-              id="secret"
-              name="secret"
-              placeholder="Secret code..."
+              id="passphrase"
+              name="passphrase"
+              placeholder="Secret passphrase..."
               type="password"
               required
               autofocus
@@ -31,9 +31,9 @@
             <input
               id="show"
               type="checkbox"
-              onclick="showSecret()"
+              onclick="showPassphrase()"
                />
-            <label for="show">Show secret</label>
+            <label for="show">Show passphrase</label>
           </div>
           <button type="submit">Submit</button>
         </form>
@@ -44,12 +44,12 @@
     <%- include('../partials/footer.ejs') %>
 
     <script>
-      function showSecret() {
-        const secret = document.querySelector('#secret')
-        if(secret.type === 'password') {
-          secret.type = 'text'
+      function showPassphrase() {
+        const passphrase = document.querySelector('#passphrase')
+        if(passphrase.type === 'password') {
+          passphrase.type = 'text'
         } else {
-          secret.type = 'password'
+          passphrase.type = 'password'
         }
       }
     </script>

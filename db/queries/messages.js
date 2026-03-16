@@ -17,7 +17,7 @@ async function getAllMessages() {
     ORDER BY messages.id DESC
   `
   const { rows } = await pool.query(text)
-  console.log("🚀 ~ getAllMessages ~ rows:", rows)
+  // console.log("🚀 ~ getAllMessages ~ rows:", rows)
   return rows
 }
 

@@ -1,15 +1,15 @@
 /* Imports */
 const { body, validationResult, matchedData } = require('express-validator')
-const SecretMismatchError = require('../errors/secretMismatchError')
+const PassphraseMismatchError = require('../errors/passphraseMismatchError')
 require('dotenv').config()
 const { updateMemberStatus } = require('../db/queries/users')
 
 /* Error messages */
 const emptyErr = 'can not be empty.'
 
-/* Validate secret */
-const validateSecret = [
-  body('secret').trim().notEmpty().withMessage(`Secret ${emptyErr}`),
+/* Validate passphrase */
+const validatePassphrase = [
+  body('passphrase').trim().notEmpty().withMessage(`Passphrase ${emptyErr}`),
 ]
 
 /* Show join club form */
@@ -21,7 +21,7 @@ async function club_get(req, res) {
 
 /* Validate and add as a member */
 const club_post = [
-  validateSecret,
+  validatePassphrase,
 
   async (req, res, next) => {
 
@@ -38,12 +38,11 @@ const club_post = [
 
     try {
       // Get validated form data
-      const { secret } = matchedData(req)
+      const { passphrase } = matchedData(req)
       const userId = req.user.id
-      console.log('secret:', process.env.SECRET_CODE)
 
-      if (secret !== process.env.SECRET_CODE) {
-        throw new SecretMismatchError()
+      if (passphrase !== process.env.SECRET_PASSPHRASE) {
+        throw new PassphraseMismatchError()
       }
 
       await updateMemberStatus(userId)
