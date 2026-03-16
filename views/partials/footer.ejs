@@ -1,4 +1,9 @@
 <footer class="footer">
   <p>Copyright &copy; Cloak & Cipher 2026</p>
-  <a href="/admin">Request Higher Clearance</a>
+  <% if(locals.currentUser) { %>
+    <% if(!currentUser.is_admin) {%>
+      <a href="/admin">Request Command Override</a>
+    <% }%>
+  <% } %>
+  
 </footer>
