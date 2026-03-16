@@ -8,4 +8,10 @@ async function addMessage(title, content, userId) {
   )
 }
 
-module.exports = addMessage
+/* Retrieve all messages from messages table */
+async function getAllMessages() {
+  const { rows } = await pool.query('SELECT * FROM messages ORDER BY id DESC')
+  return rows
+}
+
+module.exports = { addMessage, getAllMessages }
