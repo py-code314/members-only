@@ -8,8 +8,39 @@
 
     <!-- Main content-->
     <main class="main">
-      <h2>Home page</h2>
-      
+      <div class="messages">
+        <h2>Home page</h2>
+        <% if (locals.messages) { %>
+          <h3>Messages</h3>
+          <% if(messages.length > 0) { %>
+            <ul class="messages__list">
+            <% messages.forEach(message => { %>
+              <li class="message">
+                <h4><%= message.title %></h4>
+                <p><%= message.content %></p>
+                <% if(locals.currentUser) { %>
+                  <% if(currentUser.is_member) { %>
+                  <p><%= message.author %></p>
+                  <% const date = new Date(message.date_added) %>
+                  <time datetime="<%= date.toISOString().split('T')[0] %>">
+                    Date Added <%= date.toLocaleDateString()  %>
+                  </time>
+                  <% if(currentUser.is_admin) { %>
+                    <!-- Delete message -->
+                    <form action="/messages/<%= message.msgId %>/delete" method="POST" >
+                      <button type="submit" >Delete</button>
+                    </form>
+                  <% } %>         
+                <% } %>
+                <% } %>     
+              </li>
+            <% }) %>
+            </ul>
+          <% } else { %>
+            <p>No messages yet</p>
+          <% } %>
+        <% } %>
+      </div>
     </main>
 
     <!-- Footer -->

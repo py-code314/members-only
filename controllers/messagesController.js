@@ -57,8 +57,12 @@ const message_post = [
 ]
 
 async function messages_get(req, res, next) {
+  // console.log('req user:', req.user)
+  // console.log('current user:', res.locals.currentUser)
   try {
     const messages = await getAllMessages()
+    // console.log("🚀 ~ messages_get ~ messages:", messages)
+    
     res.render('pages/home', { title: 'Home', messages })
   } catch (err) {
     return next(err)

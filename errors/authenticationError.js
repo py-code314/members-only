@@ -1,6 +1,6 @@
 class AuthenticationError extends Error {
   constructor(
-    message = 'System intercept: The provided signature is unrecognized. Please re-verify your operative credentials.',
+    message = 'System intercept: The provided credentials are not recognized. Please log-in to post a message.',
     title = 'Credentials Mismatch',
   ) {
     super(message)

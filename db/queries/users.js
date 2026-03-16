@@ -12,7 +12,7 @@ async function findUserByUsername(username) {
 /* Add new user to db */
 async function addUser(username, firstName, lastName, hashedPassword) {
   await pool.query(
-    "INSERT INTO users (username, firstName, lastName, hash) VALUES ($1, $2, $3, $4)",
+    "INSERT INTO users (username, first_name, last_name, hash) VALUES ($1, $2, $3, $4)",
     [username, firstName, lastName, hashedPassword]
   )
 }
@@ -20,7 +20,7 @@ async function addUser(username, firstName, lastName, hashedPassword) {
 /* Update user's member status */
 async function updateMemberStatus(id) {
   await pool.query(
-    "UPDATE users SET isMember = $1 WHERE id = $2", [true, id]
+    "UPDATE users SET is_member = $1 WHERE id = $2", [true, id]
   )
 }
 module.exports = { findUserByUsername, addUser, updateMemberStatus }

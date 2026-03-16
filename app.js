@@ -74,10 +74,11 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/', indexRouter)
+// app.use('/', indexRouter)
 app.use('/signUp', signUpRouter)
 app.use('/logIn', logInRouter)
-app.use('/home', homeRouter)
+// app.use('/home', homeRouter)
+app.use('/', homeRouter)
 app.use('/logOut', logOutRouter)
 app.use('/messages', messagesRouter)
 app.use('/club', clubRouter)

@@ -14,7 +14,7 @@ logInRouter.post(
   '/',
   log_in_post,
   passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/',
     failureRedirect: '/logIn',
     failureMessage: true,
   }),
