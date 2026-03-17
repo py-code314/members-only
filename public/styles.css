@@ -71,3 +71,31 @@ a {
    END OF RESET 
    =================== */
 
+/* Declare custom fonts */
+@font-face {
+  font-family: 'Alegreya Sans SC Bold';
+  src:
+    url('/fonts/Alegreya-Sans-SC/AlegreyaSansSC-Bold.woff2')
+      format('woff2'),
+    url('/fonts/Alegreya-Sans-SC/AlegreyaSansSC-Bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Alegreya Sans Regular';
+  src:
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Regular.woff2')
+      format('woff2'),
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Regular.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'Alegreya Sans Medium';
+  src:
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Medium.woff2')
+      format('woff2'),
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Medium.woff')
+      format('woff');
+}
+
