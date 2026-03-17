@@ -19,21 +19,25 @@
             <ul class="messages__list">
             <% messages.forEach(message => { %>
               <li class="message">
-                <h4><%= message.title %></h4>
-                <p><%= message.content %></p>
+                <h3><%= message.title %></h3>
                 <% if(locals.currentUser) { %>
-                  <% if(currentUser.is_member) { %>
-                  <p><%= message.author %></p>
-                  <% const date = new Date(message.date_added) %>
-                  <time datetime="<%= date.toISOString().split('T')[0] %>">
-                    Date Added <%= date.toLocaleDateString()  %>
-                  </time>
                   <% if(currentUser.is_admin) { %>
                     <!-- Delete message -->
                     <form action="/messages/<%= message.msgId %>/delete" method="POST" >
                       <button type="submit" >Delete</button>
                     </form>
-                  <% } %>         
+                  <% } %>
+                <% } %>
+                <hr>
+                <p><span>Message</span><span><%= message.content %></span></p>
+                <% if(locals.currentUser) { %>
+                  <% if(currentUser.is_member) { %>
+                  <p><span>Author</span><%= message.fullName %></p>
+                  <% const date = new Date(message.date_added) %>
+                  <time datetime="<%= date.toISOString().split('T')[0] %>">
+                    Created <%= date.toLocaleString()  %>
+                  </time>
+                           
                 <% } %>
                 <% } %>     
               </li>
