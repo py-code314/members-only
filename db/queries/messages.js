@@ -17,8 +17,12 @@ async function getAllMessages() {
     ORDER BY messages.id DESC
   `
   const { rows } = await pool.query(text)
-  // console.log("🚀 ~ getAllMessages ~ rows:", rows)
   return rows
 }
 
-module.exports = { addMessage, getAllMessages }
+/* Delete message from table */
+async function deleteMessage(id) {
+  await pool.query('DELETE FROM messages WHERE id = $1', [id])
+}
+
+module.exports = { addMessage, getAllMessages, deleteMessage }

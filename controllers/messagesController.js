@@ -1,6 +1,6 @@
 /* Imports */
 const { body, validationResult, matchedData } = require('express-validator')
-const {addMessage, getAllMessages} = require('../db/queries/messages')
+const {addMessage, getAllMessages, deleteMessage} = require('../db/queries/messages')
 
 /* Error messages */
 const emptyErr = 'can not be empty.'
@@ -57,11 +57,8 @@ const message_post = [
 ]
 
 async function messages_get(req, res, next) {
-  // console.log('req user:', req.user)
-  // console.log('current user:', res.locals.currentUser)
   try {
     const messages = await getAllMessages()
-    // console.log("🚀 ~ messages_get ~ messages:", messages)
     
     res.render('pages/home', { title: 'Home', messages })
   } catch (err) {
@@ -72,7 +69,6 @@ async function messages_get(req, res, next) {
 /* Delete message */
 async function message_delete_post(req, res, next) {
   const id = Number(req.params.id)
-  // const authors = await getAllAuthors()
 
 
   try {

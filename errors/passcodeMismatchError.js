@@ -1,7 +1,7 @@
 class PasscodeMismatchError extends Error {
   constructor(
     message = 'Passcode does not match. You need to get a proper security clearance.',
-    title = 'Access Denied',
+    title = 'Protocol Error',
   ) {
     super(message)
     this.statusCode = 403
