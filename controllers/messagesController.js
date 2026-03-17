@@ -49,7 +49,7 @@ const message_post = [
 
       await addMessage(title, content, userId)
 
-      res.redirect('/home')
+      res.redirect('/')
     } catch (err) {
       return next(err)
     }
@@ -68,4 +68,27 @@ async function messages_get(req, res, next) {
     return next(err)
   }
 }
-module.exports = { message_get, message_post, messages_get }
+
+/* Delete message */
+async function message_delete_post(req, res, next) {
+  const id = Number(req.params.id)
+  // const authors = await getAllAuthors()
+
+
+  try {
+    // Delete message
+    await deleteMessage(id)
+    res.redirect('/')
+  } catch (err) {
+    console.error(err)
+
+    return next(err)
+  }
+}
+
+module.exports = {
+  message_get,
+  message_post,
+  messages_get,
+  message_delete_post,
+}
