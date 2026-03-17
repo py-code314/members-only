@@ -23,4 +23,17 @@ async function updateMemberStatus(id) {
     "UPDATE users SET is_member = $1 WHERE id = $2", [true, id]
   )
 }
-module.exports = { findUserByUsername, addUser, updateMemberStatus }
+
+/* Update user's admin status */
+async function updateAdminStatus(id) {
+  await pool.query(
+    "UPDATE users SET is_admin = $1 WHERE id = $2", [true, id]
+  )
+}
+
+module.exports = {
+  findUserByUsername,
+  addUser,
+  updateMemberStatus,
+  updateAdminStatus,
+}
