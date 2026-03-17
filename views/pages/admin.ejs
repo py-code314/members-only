@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Main content-->
+    <main class="main">
+      <div class="admin">
+        <h2>Command Override Terminal</h2>
+        <!-- Show errors -->
+        <% if(locals.errors) { %>
+          <%- include('../partials/errors.ejs') %>
+        <% }  %>
+        
+        <form class="form" action="/admin" method="POST">
+          <div class="form__control">
+            <label for="passcode">Enter secret passcode</label>
+            <input
+              id="passcode"
+              name="passcode"
+              placeholder="Secret passcode..."
+              type="password"
+              required
+              autofocus
+               />
+          </div>
+          <div class="form__control">
+            <input
+              id="show"
+              type="checkbox"
+              onclick="showPasscode()"
+               />
+            <label for="show">Show passcode</label>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+    <script>
+      function showPasscode() {
+        const passcode = document.querySelector('#passcode')
+        if(passcode.type === 'password') {
+          passcode.type = 'text'
+        } else {
+          passcode.type = 'password'
+        }
+      }
+    </script>
+  </body>
+</html>

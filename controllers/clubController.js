@@ -47,7 +47,7 @@ const club_post = [
 
       await updateMemberStatus(userId)
 
-      res.redirect('/home')
+      res.redirect('/')
     } catch (err) {
       return next(err)
     }
