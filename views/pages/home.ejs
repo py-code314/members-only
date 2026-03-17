@@ -8,10 +8,13 @@
 
     <!-- Main content-->
     <main class="main">
+      <% if(!locals.currentUser) { %>
+        <%- include('../partials/hero.ejs') %>
+      <% } %>
       <div class="messages">
-        <h2>Home page</h2>
+        <h2>Recent Posts</h2>
         <% if (locals.messages) { %>
-          <h3>Messages</h3>
+          <!-- <h3>Messages</h3> -->
           <% if(messages.length > 0) { %>
             <ul class="messages__list">
             <% messages.forEach(message => { %>
