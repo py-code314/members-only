@@ -18,17 +18,17 @@
   <!-- Menu -->
   <ul class="menu">
     <li class="menu__item"><a href="/messages">Message Board</a></li>
-    <li><a class="menu__link club" href="/club">Join The Circle</a></li>
+    <li><a class="menu__link link link--cta" href="/club">Join The Circle</a></li>
     <% if(locals.currentUser) { %>
       <li><a class="menu__link" href="/messages/new">New Message</a></li>
       <li class="menu__item"><a class="menu__link" href=""><%= currentUser.username %></a></li>
       <li>
         <form action="/logOut" method="post">
-          <button class=" btn btn--logout" type="submit">Log Out</button>
+          <button class=" btn btn--logout link link--login" type="submit">Log Out</button>
         </form>
 			</li>
     <% } else { %>
-      <li class="menu__item"><a class="menu__link login" href="/logIn">Log In</a></li>
+      <li class="menu__item"><a class="menu__link link link--login" href="/logIn">Log In</a></li>
     <% } %>
   </ul>
 </header>
