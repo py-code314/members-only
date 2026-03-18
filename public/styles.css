@@ -98,4 +98,74 @@ a {
     url('/fonts/Alegreya-Sans/AlegreyaSans-Medium.woff')
       format('woff');
 }
+/* CSS variables */
+:root {
+  /* Core units
+  ============== */
+  --base-unit: 0.25rem;
+  --base-half-unit: calc(var(--base-unit) / 2);
 
+  /* Typography
+  ============== */
+  /* Fonts */
+  --ff-primary: 'Alegreya Sans Regular';
+  --ff-secondary: 'Alegreya Sans SC Bold';
+
+  /* Font sizes */
+  --font-base-unit: var(--base-unit);
+  --fs-12: calc(var(--font-base-unit) * 3);
+  --fs-16: calc(var(--font-base-unit) * 4);
+  --fs-20: calc(var(--font-base-unit) * 5);
+  --fs-24: calc(var(--font-base-unit) * 6);
+  --fs-40: calc(var(--font-base-unit) * 10);
+  --fs-48: calc(var(--font-base-unit) * 12);
+  --fs-64: calc(var(--font-base-unit) * 16);
+
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+
+  /* Space
+  ========= */
+  --space-base-unit: var(--base-unit);
+  --space-8: calc(var(--space-base-unit) * 2);
+  --space-12: calc(var(--space-base-unit) * 3);
+  --space-16: calc(var(--space-base-unit) * 4);
+  --space-24: calc(var(--space-base-unit) * 6);
+  --space-32: calc(var(--space-base-unit) * 8);
+
+  /* color
+  ========= */
+  --clr-badge: #FFAF54;
+  --clr-hero: #FEF9F7;
+  --clr-accent: #2974A8;
+  --clr-gray-1: #ffffff;
+  --clr-gray-2: #eeeeee;
+  /* --clr-gray-3: #d5d5d5;
+  --clr-gray-4: #bbbbbb;
+  --clr-gray-5: #a1a1a1;
+  --clr-gray-6: #888888; */
+  --clr-gray-7: #6f6f6f;
+  /* --clr-gray-8: #555555;
+  --clr-gray-9: #3c3c3c;
+  --clr-gray-10: #222222; */
+
+  --clr-white: #fff;
+  --clr-black: #000;
+  --clr-red: #dc143c;
+
+  /* Border
+  ========== */
+  /* Border radius */
+  --radius-base-unit: 0.3125rem;
+  --bd-radius-small: calc(var(--radius-base-unit) * 1);
+  /* --bd-radius-medium: calc(var(--radius-base-unit) * 2); */
+  --bd-radius-large: calc(var(--radius-base-unit) * 8);
+  --bd-radius-round: 50%;
+
+  /* Box shadow */
+  --box-shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
