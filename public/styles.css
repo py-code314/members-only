@@ -98,6 +98,16 @@ a {
     url('/fonts/Alegreya-Sans/AlegreyaSans-Medium.woff')
       format('woff');
 }
+
+@font-face {
+  font-family: 'Alegreya Sans Bold';
+  src:
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Bold.woff2')
+      format('woff2'),
+    url('/fonts/Alegreya-Sans/AlegreyaSans-Bold.woff')
+      format('woff');
+}
+
 /* CSS variables */
 :root {
   /* Core units
@@ -109,7 +119,9 @@ a {
   ============== */
   /* Fonts */
   --ff-primary: 'Alegreya Sans Regular';
-  --ff-secondary: 'Alegreya Sans SC Bold';
+  --ff-secondary: 'Alegreya Sans Bold';
+  --ff-tertiary: 'Alegreya Sans Medium';
+  --ff-header: 'Alegreya Sans SC Bold';
 
   /* Font sizes */
   --font-base-unit: var(--base-unit);
@@ -144,8 +156,8 @@ a {
   --clr-accent: #2974A8;
   --clr-gray-1: #ffffff;
   --clr-gray-2: #eeeeee;
-  /* --clr-gray-3: #d5d5d5;
-  --clr-gray-4: #bbbbbb;
+  --clr-gray-3: #d5d5d5;
+  /*--clr-gray-4: #bbbbbb;
   --clr-gray-5: #a1a1a1;
   --clr-gray-6: #888888; */
   --clr-gray-7: #6f6f6f;
@@ -162,10 +174,76 @@ a {
   /* Border radius */
   --radius-base-unit: 0.3125rem;
   --bd-radius-small: calc(var(--radius-base-unit) * 1);
-  /* --bd-radius-medium: calc(var(--radius-base-unit) * 2); */
+  --bd-radius-medium: calc(var(--radius-base-unit) * 2);
   --bd-radius-large: calc(var(--radius-base-unit) * 8);
   --bd-radius-round: 50%;
 
   /* Box shadow */
   --box-shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+body {
+  padding-inline: var(--space-32, 2rem);
+  font-family: var(--ff-primary), sans-serif;
+}
+
+/* Make header sticky on top of the page */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: var(--clr-white, white);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16, 1rem);
+}
+
+.title {
+  font-family: var(--ff-header), sans-serif;
+  font-size: var(--fs-48, 3rem);
+}
+
+a {
+  color: var(--clr-black, black);
+}
+
+.title--accent {
+  color: var(--clr-accent, royalblue);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32, 2rem);
+  font-family: var(--ff-secondary), sans-serif;
+}
+
+.club {
+  background-color: var(--clr-accent, royalblue);
+  color: var(--clr-white, white);
+  padding: var(--space-12, 0.75rem);
+  border-radius: var(--bd-radius-medium, 10px);
+}
+
+/* Remove user agent button styles */
+.btn {
+  border: transparent;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.login,
+.btn--logout {
+  padding: var(--space-12, 0.75rem) var(--space-16, 1rem);
+  border-radius: var(--bd-radius-medium, 10px);
+  background-color: var(--clr-gray-3, lightgray);
+}
+
+
