@@ -11,7 +11,7 @@ async function addMessage(title, content, userId) {
 /* Retrieve all messages from messages table */
 async function getAllMessages() {
   const text = `
-    SELECT messages.id AS "msgId", title, content, CONCAT(first_name, ' ', last_name) AS "fullName", username AS "author", date_added
+    SELECT messages.id AS "msgId", title, content, CONCAT(first_name, ' ', last_name) AS "fullName", username AS "author", date_added, is_member AS member, is_admin AS admin
     FROM messages JOIN users
     ON messages.author_id = users.id
     ORDER BY messages.id DESC
