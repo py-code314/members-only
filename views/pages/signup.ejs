@@ -12,11 +12,6 @@
         <h2 class="signup__header sub-title">Create Account</h2>
         <p class="signup__text">Your data stays yours. Join the conversation in a secure space</p>
         
-        <!-- Show errors -->
-        <% if(locals.errors) { %>
-          <%- include('../partials/errors.ejs') %>
-        <% }  %>
-        
         <form class="form" action="/signUp" method="POST">
           <p class="form__required">
             <strong class="form__asterisk">*</strong> All fields are
@@ -34,6 +29,15 @@
               value="<%= locals.user?.username || '' %>"
               required
                />
+            <span class="form__error">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                  <% if (error.path === 'username') { %>
+                    <%= error.msg %>
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </span>
           </div>
           <div class="form__control">
             <label class="form__label" for="firstName">First Name</label>
@@ -45,7 +49,17 @@
               placeholder="First Name"
               autocomplete="given-name"
               value="<%= locals.user?.firstName || '' %>"
-              required />
+              required
+               />
+            <span class="form__error">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                  <% if (error.path === 'firstName') { %>
+                    <%= error.msg %>
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </span>
           </div>
           <div class="form__control">
             <label class="form__label" for="lastName">Last Name</label>
@@ -57,7 +71,17 @@
               placeholder="Last Name"
               autocomplete="family-name"
               value="<%= locals.user?.lastName || '' %>"
-              required />
+              required
+               />
+            <span class="form__error">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                  <% if (error.path === 'lastName') { %>
+                    <%= error.msg %>
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </span>
           </div>
           <div class="form__control">
             <label class="form__label" for="password">Password</label>
@@ -75,9 +99,17 @@
               min="8"
               placeholder="Password"
               pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
-              autocomplete="new-password"
               required
                />
+            <span class="form__error">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                  <% if (error.path === 'password') { %>
+                    <%= error.msg %>
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </span>
           </div>
           <div class="form__control">
             <label class="form__label" for="confirmPassword">Confirm Password</label>
@@ -89,9 +121,17 @@
               min="8"
               placeholder="Confirm password"
               pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
-              autocomplete="new-password"
               required
                />
+            <span class="form__error">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                  <% if (error.path === 'confirmPassword') { %>
+                    <%= error.msg %>
+                  <% } %>
+                <% }) %>
+              <% } %>
+            </span>
           </div>
           <button class="btn btn--cta btn--signup" type="submit">Sign Up</button>
         </form>
