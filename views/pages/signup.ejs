@@ -9,16 +9,23 @@
     <!-- Main content-->
     <main class="main">
       <div class="signup">
-        <h2>Sign Up</h2>
+        <h2 class="signup__header sub-title">Create Account</h2>
+        <p class="signup__text">Your data stays yours. Join the conversation in a secure space</p>
+        
         <!-- Show errors -->
         <% if(locals.errors) { %>
           <%- include('../partials/errors.ejs') %>
         <% }  %>
         
         <form class="form" action="/signUp" method="POST">
+          <p class="form__required">
+            <strong class="form__asterisk">*</strong> All fields are
+            required.
+          </p>
           <div class="form__control">
-            <label for="username">Username or Email</label>
+            <label class="form__label" for="username">Username or Email</label>
             <input
+              class="form__input"
               id="username"
               name="username"
               placeholder="Username"
@@ -29,8 +36,9 @@
                />
           </div>
           <div class="form__control">
-            <label for="firstName">First Name</label>
+            <label class="form__label" for="firstName">First Name</label>
             <input
+              class="form__input"
               name="firstName"
               id="firstName"
               type="text"
@@ -40,8 +48,9 @@
               required />
           </div>
           <div class="form__control">
-            <label for="lastName">Last Name</label>
+            <label class="form__label" for="lastName">Last Name</label>
             <input
+              class="form__input"
               name="lastName"
               id="lastName"
               type="text"
@@ -51,7 +60,7 @@
               required />
           </div>
           <div class="form__control">
-            <label for="password">Password</label>
+            <label class="form__label" for="password">Password</label>
             <ul class="password-requirements">
               <li>At least 8 characters</li>
               <li>One uppercase letter (A-Z)</li>
@@ -59,6 +68,7 @@
               <li>One special character (!@#$%^&*)</li>
             </ul>
             <input
+              class="form__input"
               id="password"
               name="password"
               type="password"
@@ -70,8 +80,9 @@
                />
           </div>
           <div class="form__control">
-            <label for="confirmPassword">Confirm Password</label>
+            <label class="form__label" for="confirmPassword">Confirm Password</label>
             <input
+              class="form__input"
               id="confirmPassword"
               name="confirmPassword"
               type="password"
@@ -82,7 +93,7 @@
               required
                />
           </div>
-          <button type="submit">Sign Up</button>
+          <button class="btn btn--cta btn--signup" type="submit">Sign Up</button>
         </form>
       </div>
     </main>

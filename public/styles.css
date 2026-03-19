@@ -121,6 +121,7 @@ a {
   --fs-16: calc(var(--font-base-unit) * 4);
   --fs-20: calc(var(--font-base-unit) * 5);
   --fs-24: calc(var(--font-base-unit) * 6);
+  --fs-32: calc(var(--font-base-unit) * 8);
   --fs-40: calc(var(--font-base-unit) * 10);
   --fs-48: calc(var(--font-base-unit) * 12);
   --fs-64: calc(var(--font-base-unit) * 16);
@@ -181,6 +182,17 @@ a {
 
 body {
   font-family: var(--ff-primary), sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Make header sticky on top of the page */
@@ -302,7 +314,8 @@ a {
 }
 
 .sub-title {
-  margin-block-end: var(--space-24, 1.5rem);
+  margin-block-end: var(--space-8, 0.625rem);
+  font-size: var(--fs-32, 2rem);
 }
 
 .messages__list {
@@ -392,3 +405,61 @@ hr {
 .link--admin {
   text-decoration: underline;
 }
+
+.signup {
+  border: 1px solid var(--clr-gray-3, lightgray);
+  border-radius: var(--bd-radius-medium, 0.625rem);
+  box-shadow: var(--box-shadow, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px);
+  padding: var(--space-16, 1rem) var(--space-32, 2rem);
+  font-size: var(--fs-20, 1.25rem);
+}
+
+.signup__text {
+  margin-block-end: var(--space-12, 0.75rem);
+}
+
+.signup__header {
+  margin-block-end: 0;
+}
+
+
+.form {
+  display: grid;
+  gap: var(--space-16, 1rem);
+}
+
+.form__required {
+  font-weight: var(--fw-bold, 700);
+}
+
+.form__control {
+  width: 100%;
+}
+
+.form__label,
+.form__input {
+  width: 100%;
+}
+
+.form__label {
+  display: block;
+  margin-block-end: var(--space-4, 0.25rem);
+  font-weight: var(--fw-bold, 700);
+}
+
+.form__input {
+  display: block;
+  padding: var(--space-8, 0.5rem);
+  border: 1px solid var(--clr-black, black);
+  border-radius: var(--bd-radius-small, 00.3125rem);
+}
+
+.password-requirements {
+  margin-block-end: var(--space-8, 0.5rem);
+}
+
+.btn--signup {
+  margin-block-start: var(--space-16, 1rem);
+}
+
+
