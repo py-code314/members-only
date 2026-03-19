@@ -1,8 +1,8 @@
 <footer class="footer">
-  <p>Copyright &copy; Cloak & Cipher 2026</p>
+  <p class="footer__copyright">Copyright &copy; Cloak & Cipher 2026</p>
   <% if(locals.currentUser) { %>
     <% if(!currentUser.is_admin) {%>
-      <a href="/admin">Request Command Override</a>
+      <a class="link--admin" href="/admin">Request Command Override</a>
     <% }%>
   <% } %>
   
