@@ -409,7 +409,8 @@ hr {
 
 .signup,
 .login,
-.club {
+.club,
+.admin {
   width: 600px;
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-medium, 0.625rem);
@@ -417,6 +418,8 @@ hr {
   padding: var(--space-32, 2rem) var(--space-48, 3rem);
   font-size: var(--fs-20, 1.25rem);
   margin-block: var(--space-32, 2rem);
+  display: grid;
+  gap: var(--space-16, 1rem);
 }
 
 .signup__text {
@@ -492,8 +495,6 @@ hr {
 
 .club--wide {
   width: 700px;
-  display: grid;
-  gap: var(--space-16, 1rem);
 }
 
 .membership__text {

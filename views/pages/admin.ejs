@@ -9,34 +9,42 @@
     <!-- Main content-->
     <main class="main">
       <div class="admin">
-        <h2>Command Override Terminal</h2>
-        <!-- Show errors -->
-        <% if(locals.errors) { %>
-          <%- include('../partials/errors.ejs') %>
-        <% }  %>
-        
-        <form class="form" action="/admin" method="POST">
-          <div class="form__control">
-            <label for="passcode">Enter secret passcode</label>
-            <input
-              id="passcode"
-              name="passcode"
-              placeholder="Secret passcode..."
-              type="password"
-              required
-              autofocus
-               />
-          </div>
-          <div class="form__control">
-            <input
-              id="show"
-              type="checkbox"
-              onclick="showPasscode()"
-               />
-            <label for="show">Show passcode</label>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+        <section>
+          <h2>Become an Admin</h2>
+          <p>The Admin serves as the platform's primary steward, ensuring a high-trust environment through rigorous system oversight. Key duties include safeguarding encryption protocols, managing forum infrastructure, and conducting regular privacy audits to maintain a zero-log status. By managing access control and upholding community guidelines, the Admin ensures the network remains a secure, high-quality sanctuary for the private exchange of ideas.</p>
+          <p><strong>Remember that "With great power comes great responsibility!"</strong></p>
+        </section>
+        <section>
+          <h2>Command Override Terminal</h2>
+          <!-- Show errors -->
+          <% if(locals.errors) { %>
+            <%- include('../partials/errors.ejs') %>
+          <% }  %>
+          
+          <form class="form" action="/admin" method="POST">
+            <div class="form__control">
+              <label class="form__label" for="passcode">Enter secret passcode</label>
+              <input
+                class="form__input"
+                id="passcode"
+                name="passcode"
+                placeholder="Secret passcode..."
+                type="password"
+                required
+                autofocus
+                 />
+            </div>
+            <div class="form__control">
+              <input
+                id="show"
+                type="checkbox"
+                onclick="showPasscode()"
+                 />
+              <label for="show">Show passcode</label>
+            </div>
+            <button class="btn btn--cta" type="submit">Submit</button>
+          </form>
+        </section>
       </div>
     </main>
 
