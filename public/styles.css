@@ -300,8 +300,8 @@ a {
 }
 
 .hero__image-container {
-  width: 450px;
-  height: 450px;
+  width: 28.125rem;
+  height: 28.125rem;
 }
 
 .hero__image {
@@ -407,11 +407,14 @@ hr {
   text-decoration: underline;
 }
 
-.signup {
+.signup,
+.login,
+.club {
+  width: 600px;
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-medium, 0.625rem);
   box-shadow: var(--box-shadow, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px);
-  padding: var(--space-16, 1rem) var(--space-48, 3rem);
+  padding: var(--space-32, 2rem) var(--space-48, 3rem);
   font-size: var(--fs-20, 1.25rem);
   margin-block: var(--space-32, 2rem);
 }
@@ -467,8 +470,32 @@ hr {
   margin-block-end: var(--space-8, 0.5rem);
 }
 
-.btn--signup {
+.btn--signup,
+.btn--login {
   margin-block-start: var(--space-16, 1rem);
 }
 
+.login__header {
+  margin-block-end: var(--space-32, 2rem);
+  text-align: center;
+}
 
+.errors {
+  padding: var(--space-16, 1rem);
+  color: var(--clr-red, red);
+  font-family: var(--ff-tertiary), sans-serif;
+}
+
+.errors__list {
+  list-style-type: disc;
+}
+
+.club--wide {
+  width: 700px;
+  display: grid;
+  gap: var(--space-16, 1rem);
+}
+
+.membership__text {
+  margin-block-end: var(--space-16, 1rem);
+}

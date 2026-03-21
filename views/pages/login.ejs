@@ -9,7 +9,7 @@
     <!-- Main content-->
     <main class="main">
       <div class="login">
-        <h2>Log In</h2>
+        <h2 class="login__header">Welcome Back</h2>
         <!-- Show errors -->
         <% if(locals.errors) { %>
           <%- include('../partials/errors.ejs') %>
@@ -17,8 +17,9 @@
         
         <form class="form" action="/logIn" method="POST">
           <div class="form__control">
-            <label for="username">Username or Email</label>
+            <label class="form__label" for="username">Username or Email</label>
             <input
+              class="form__input"
               id="username"
               name="username"
               placeholder="Username"
@@ -30,17 +31,17 @@
                />
           </div>
           <div class="form__control">
-            <label for="password">Password</label>
+            <label class="form__label" for="password">Password</label>
             <input
+              class="form__input"
               id="password"
               name="password"
               type="password"
               placeholder="Password"
-              autocomplete="current-password"
               required
                />
           </div>
-          <button type="submit">Log In</button>
+          <button class="btn btn--cta btn--login" type="submit">Log In</button>
         </form>
       </div>
     </main>
