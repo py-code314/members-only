@@ -1,7 +1,7 @@
 class AuthorizationError extends Error {
   constructor(
-    message = 'You are not authorized to do this.',
-    title = 'Access Denied',
+    message = 'Access denied. This action requires administrative oversight and higher-level responsibility.',
+    title = 'Clearance Required',
   ) {
     super(message)
     this.statusCode = 403

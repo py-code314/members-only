@@ -13,7 +13,6 @@ const messagesRouter = require('./routes/messagesRoutes')
 const clubRouter = require('./routes/clubRoutes')
 const adminRouter = require('./routes/adminRoutes')
 
-
 /**
  * -------------- GENERAL SETUP ----------------
  */
@@ -93,17 +92,20 @@ app.use((err, req, res, next) => {
   console.error(err)
 
   // Error data
-  const errorCode = err.statusCode || 500
-  const errorTitle = err.title || 'Transmission Interrupted'
-  let errorMessage = err.message
-  if (err.code === '42601') {
-    errorMessage =
-      'The Cipher has been scrambled. Our agents are currently investigating the breach.'
+  const statusCode = err.statusCode || 500
+
+  let errorTitle = 'Connection Terminated'
+  let errorMessage =
+    'The requested operation could not be completed. The signal has been purged.'
+
+  if (err.title && statusCode !== 500) {
+    errorTitle = err.title
+    errorMessage = err.message
   }
 
-  res.status(errorCode).render('pages/error', {
+  res.status(statusCode).render('pages/error', {
     title: 'Error',
-    errorCode,
+    errorCode: statusCode,
     errorTitle,
     errorMessage,
   })

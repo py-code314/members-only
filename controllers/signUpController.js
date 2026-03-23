@@ -111,6 +111,9 @@ const sign_up_post = [
       const hashedPassword = await bcrypt.hash(password, 10)
 
       await addUser(username, firstName, lastName, hashedPassword)
+      req.session.messages = [
+        'Account established. You may now perform an uplink (Log In).',
+      ]
 
       res.redirect('/logIn')
     } catch (err) {

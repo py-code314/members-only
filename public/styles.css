@@ -483,14 +483,17 @@ hr {
   text-align: center;
 }
 
-.errors {
+/* .errors {
   padding: var(--space-16, 1rem);
   color: var(--clr-red, red);
   font-family: var(--ff-tertiary), sans-serif;
-}
+} */
 
 .errors__list {
   list-style-type: disc;
+  padding: var(--space-16, 1rem);
+  color: var(--clr-red, red);
+  font-family: var(--ff-tertiary), sans-serif;
 }
 
 .club--wide {
@@ -499,4 +502,9 @@ hr {
 
 .membership__text {
   margin-block-end: var(--space-16, 1rem);
+}
+
+.success__msg {
+  font-size: var(--fs-24, 1.5rem);
+  font-family: var(--ff-secondary), sans-serif;
 }

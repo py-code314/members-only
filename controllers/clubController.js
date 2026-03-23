@@ -48,6 +48,7 @@ const club_post = [
       await updateMemberStatus(userId)
 
       res.redirect('/')
+      // ? render home page with congrats message
     } catch (err) {
       return next(err)
     }

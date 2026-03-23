@@ -12,12 +12,20 @@ const validateLogIn = [
 
 /* Show log in page */
 async function log_in_get(req, res) {
+  // User is already logged in
+  if (req.user) {
+    return res.redirect('/')
+  }
+
+  // User not logged in
   const messages = req.session.messages || []
-  const errors = messages.map((message) => ({ msg: message }))
+  const success = messages.filter(message => message.includes('established'))
+  const errors = messages.filter(message => !message.includes('established')).map((message) => ({ msg: message }))
   req.session.messages = []
 
   res.render('pages/logIn', {
     title: 'Log In',
+    success,
     errors,
   })
 }

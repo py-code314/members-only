@@ -8,10 +8,15 @@
 
     <!-- Main content-->
     <main class="main">
+      <!-- Show success message -->
+      <% if(locals.success.length > 0) { %>
+        <%- include('../partials/success.ejs') %>
+      <% }  %>
       <div class="login">
+        
         <h2 class="login__header">Welcome Back</h2>
         <!-- Show errors -->
-        <% if(locals.errors) { %>
+        <% if(locals.errors.length > 0) { %>
           <%- include('../partials/errors.ejs') %>
         <% }  %>
         
