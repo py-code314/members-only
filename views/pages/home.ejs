@@ -11,6 +11,12 @@
       <% if(!locals.currentUser) { %>
         <%- include('../partials/hero.ejs') %>
       <% } %>
+
+      <!-- Show success message -->
+      <% if(locals.successMember.length > 0 || locals.successAdmin.length > 0) { %>
+        <%- include('../partials/success.ejs') %>
+      <% }  %>
+
       <div class="messages">
         <h2 class="sub-title">Recent Posts</h2>
         <% if (locals.messages) { %>

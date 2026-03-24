@@ -46,6 +46,9 @@ const club_post = [
       }
 
       await updateMemberStatus(userId)
+      req.session.messages = [
+        'You are now a verified member of the Inner Circle. All restricted boards are now visible.',
+      ]
 
       res.redirect('/')
       // ? render home page with congrats message

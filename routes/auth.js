@@ -13,7 +13,9 @@ const authenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
   } else {
-    req.session.messages = ['You must be an operative to join the club.']
+    req.session.messages = [
+      'Unverified signal detected. Please authenticate your operative status to join the inner circle.',
+    ]
     res.redirect('/logIn')
   }
 }

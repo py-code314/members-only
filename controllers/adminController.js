@@ -45,6 +45,9 @@ const admin_post = [
       }
 
       await updateAdminStatus(userId)
+      req.session.messages = [
+        'Administrative clearance established. You have been granted oversight of the network.',
+      ]
 
       res.redirect('/')
     } catch (err) {
