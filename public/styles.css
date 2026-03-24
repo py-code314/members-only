@@ -191,7 +191,7 @@ body {
 .main {
   flex: 1;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   
 }
 
@@ -200,6 +200,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wrapper--msgs {
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  text-align: left;
 }
 
 /* Make header sticky on top of the page */
@@ -318,6 +325,8 @@ a {
 
 .messages {
   padding: var(--space-32, 2rem) var(--space-128, 8rem);
+  display: grid;
+  gap: var(--space-24, 1.5rem);
 }
 
 .sub-title {
@@ -329,10 +338,14 @@ a {
 .messages__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16, 1rem);
+  gap: var(--space-24, 1.5rem);
 }
 
-/* .message {
+.messages__sub-title {
+  font-size: var(--fs-32, 2rem);
+}
+
+.message {
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-small, 0.3125rem);
   padding: var(--space-16, 1rem);
@@ -340,7 +353,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: var(--space-16, 1rem);
-} */
+}
 
 .message__header {
   display: flex;
@@ -418,7 +431,7 @@ hr {
 .login,
 .club,
 .admin,
-.message {
+.new-msg {
   width: 600px;
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-medium, 0.625rem);
@@ -429,6 +442,8 @@ hr {
   display: grid;
   gap: var(--space-16, 1rem);
 }
+
+
 
 .admin__description,
 .admin__form {
