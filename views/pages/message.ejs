@@ -8,39 +8,43 @@
 
     <!-- Main content-->
     <main class="main">
-      <div class="message">
-        <h2>New Message</h2>
-        <!-- Show errors -->
-        <% if(locals.errors) { %>
-          <%- include('../partials/errors.ejs') %>
-        <% }  %>
+      <div class="wrapper">
+        <div class="message">
+          <h2>New Message</h2>
+          <!-- Show errors -->
+          <% if(locals.errors) { %>
+            <%- include('../partials/errors.ejs') %>
+          <% }  %>
         
-        <form class="form" action="/messages/new" method="POST">
-          <div class="form__control">
-            <label for="title">Title</label>
-            <input
-              id="title"
-              name="title"
-              placeholder="Title"
-              type="text"
-              value="<%= locals.message?.title || '' %>"
-              autofocus
-              required
-               />
-          </div>
-          <div class="form__control">
-            <label for="content">Message</label>
-            <textarea
-              name="content"
-              id="content"
-              rows="5"
-              cols="30"
-              placeholder="Type your message here..."
-              value="<%= locals.message?.content || '' %>"
-              required ></textarea>
-          </div>
-          <button type="submit">Add Message</button>
-        </form>
+          <form class="form" action="/messages/new" method="POST">
+            <div class="form__control">
+              <label class="form__label" for="title">Title</label>
+              <input
+                class="form__input"
+                id="title"
+                name="title"
+                placeholder="Title"
+                type="text"
+                value="<%= locals.message?.title || '' %>"
+                autofocus
+                required
+                 />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="content">Message</label>
+              <textarea
+                class="form__input"
+                name="content"
+                id="content"
+                rows="5"
+                cols="30"
+                placeholder="Type your message here..."
+                value="<%= locals.message?.content || '' %>"
+                required ></textarea>
+            </div>
+            <button class="btn btn--cta btn--form" type="submit">Add Message</button>
+          </form>
+        </div>
       </div>
     </main>
 

@@ -321,8 +321,9 @@ a {
 }
 
 .sub-title {
-  margin-block-end: var(--space-8, 0.625rem);
+  /* margin-block-end: var(--space-8, 0.625rem); */
   font-size: var(--fs-32, 2rem);
+  text-align: center;
 }
 
 .messages__list {
@@ -331,7 +332,7 @@ a {
   gap: var(--space-16, 1rem);
 }
 
-.message {
+/* .message {
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-small, 0.3125rem);
   padding: var(--space-16, 1rem);
@@ -339,7 +340,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: var(--space-16, 1rem);
-}
+} */
 
 .message__header {
   display: flex;
@@ -416,7 +417,8 @@ hr {
 .signup,
 .login,
 .club,
-.admin {
+.admin,
+.message {
   width: 600px;
   border: 1px solid var(--clr-gray-3, lightgray);
   border-radius: var(--bd-radius-medium, 0.625rem);
@@ -427,6 +429,13 @@ hr {
   display: grid;
   gap: var(--space-16, 1rem);
 }
+
+.admin__description,
+.admin__form {
+  display: grid;
+  gap: var(--space-16, 1rem);
+}
+
 
 .signup__text {
   margin-block-end: var(--space-12, 0.75rem);
@@ -479,26 +488,25 @@ hr {
   margin-block-end: var(--space-8, 0.5rem);
 }
 
-.btn--signup,
-.btn--login {
+.btn--form {
   margin-block-start: var(--space-16, 1rem);
 }
 
-.login__header {
+/* .login__header {
   margin-block-end: var(--space-32, 2rem);
   text-align: center;
-}
+} */
 
 .errors {
-  padding: var(--space-16, 1rem);
+  /* padding: var(--space-8, 0.5rem); */
   color: var(--clr-red, red);
   font-family: var(--ff-tertiary), sans-serif;
 }
 
 .errors__list {
   list-style-type: disc;
-  /* padding: var(--space-16, 1rem);
-  color: var(--clr-red, red);
+  padding-inline-start: var(--space-16, 1rem);
+  /* color: var(--clr-red, red);
   font-family: var(--ff-tertiary), sans-serif; */
 }
 

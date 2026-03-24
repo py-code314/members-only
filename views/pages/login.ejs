@@ -15,7 +15,7 @@
         <% }  %>
         <div class="login">
         
-          <h2 class="login__header">Welcome Back</h2>
+          <h2 class="login__header sub-title">Welcome Back</h2>
           <!-- Show errors -->
           <% if(locals.errors.length > 0) { %>
             <%- include('../partials/errors.ejs') %>
@@ -47,7 +47,7 @@
                 required
                  />
             </div>
-            <button class="btn btn--cta btn--login" type="submit">Log In</button>
+            <button class="btn btn--cta btn--form" type="submit">Log In</button>
           </form>
         </div>
       </div>
