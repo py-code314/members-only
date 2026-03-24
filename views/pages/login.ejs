@@ -8,46 +8,48 @@
 
     <!-- Main content-->
     <main class="main">
-      <!-- Show success message -->
-      <% if(locals.success.length > 0) { %>
-        <%- include('../partials/success.ejs') %>
-      <% }  %>
-      <div class="login">
-        
-        <h2 class="login__header">Welcome Back</h2>
-        <!-- Show errors -->
-        <% if(locals.errors.length > 0) { %>
-          <%- include('../partials/errors.ejs') %>
+      <div class="wrapper">
+        <!-- Show success message -->
+        <% if(locals.success.length > 0) { %>
+          <%- include('../partials/success.ejs') %>
         <% }  %>
+        <div class="login">
         
-        <form class="form" action="/logIn" method="POST">
-          <div class="form__control">
-            <label class="form__label" for="username">Username or Email</label>
-            <input
-              class="form__input"
-              id="username"
-              name="username"
-              placeholder="Username"
-              type="text"
-              autocomplete="username"
-              value="<%= locals.user?.username || '' %>"
-              required
-              autofocus
-               />
-          </div>
-          <div class="form__control">
-            <label class="form__label" for="password">Password</label>
-            <input
-              class="form__input"
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-               />
-          </div>
-          <button class="btn btn--cta btn--login" type="submit">Log In</button>
-        </form>
+          <h2 class="login__header">Welcome Back</h2>
+          <!-- Show errors -->
+          <% if(locals.errors.length > 0) { %>
+            <%- include('../partials/errors.ejs') %>
+          <% }  %>
+        
+          <form class="form" action="/logIn" method="POST">
+            <div class="form__control">
+              <label class="form__label" for="username">Username or Email</label>
+              <input
+                class="form__input"
+                id="username"
+                name="username"
+                placeholder="Username"
+                type="text"
+                autocomplete="username"
+                value="<%= locals.user?.username || '' %>"
+                required
+                autofocus
+                 />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="password">Password</label>
+              <input
+                class="form__input"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                 />
+            </div>
+            <button class="btn btn--cta btn--login" type="submit">Log In</button>
+          </form>
+        </div>
       </div>
     </main>
 
