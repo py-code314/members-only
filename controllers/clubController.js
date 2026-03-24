@@ -16,6 +16,9 @@ const validatePassphrase = [
 async function club_get(req, res) {
   // User is already logged in
   if (req.user.is_member) {
+    req.session.messages = [
+      'Your status is already verified. The shadows have not forgotten you.',
+    ]
     return res.redirect('/')
   }
 

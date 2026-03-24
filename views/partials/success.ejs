@@ -3,6 +3,10 @@
     <p class="success__msg"><%= successMember[0] %></p>
   <% } else if(successAdmin.length > 0) { %>
     <p class="success__msg"><%= successAdmin[0] %></p>
+  <% } else if(isMember.length > 0) { %> 
+    <p class="success__msg"><%= isMember[0] %></p>
+  <% } else if(isAdmin.length > 0) { %> 
+    <p class="success__msg"><%= isAdmin[0] %></p>
   <% } %>
 </div>
 

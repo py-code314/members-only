@@ -13,7 +13,7 @@
           <%- include('../partials/hero.ejs') %>
         <% } %>
         <!-- Show success message -->
-        <% if(locals.successMember || locals.successAdmin) { %>
+        <% if(locals.successMember || locals.successAdmin || locals.isMember || locals.isAdmin) { %>
           <%- include('../partials/success.ejs') %>
         <% }  %>
         <div class="messages">

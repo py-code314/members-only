@@ -27,7 +27,7 @@ async function updateMemberStatus(id) {
 /* Update user's admin status */
 async function updateAdminStatus(id) {
   await pool.query(
-    "UPDATE users SET is_admin = $1 WHERE id = $2", [true, id]
+    "UPDATE users SET is_member = $1, is_admin = $2 WHERE id = $3", [true, true, id]
   )
 }
 

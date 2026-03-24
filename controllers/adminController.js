@@ -13,6 +13,13 @@ const validatePasscode = [
 ]
 /* Show admin form */
 async function admin_get(req, res) {
+  if (req.user.is_admin) {
+    req.session.messages = [
+      'Your Level Alpha clearance is already active. The mainframe remains under your control.',
+    ]
+    return res.redirect('/')
+  }
+
   res.render('pages/admin', {
     title: 'Root Access Protocol',
   })

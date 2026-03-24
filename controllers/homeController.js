@@ -10,6 +10,8 @@ async function home_page_get(req, res, next) {
     const successAdmin = sessionMsgs.filter((message) =>
       message.includes('oversight'),
     )
+    const isMember = sessionMsgs.filter(message => message.includes('already'))
+    const isAdmin = sessionMsgs.filter(message => message.includes('Level Alpha'))
 
     req.session.messages = []
 
@@ -20,6 +22,8 @@ async function home_page_get(req, res, next) {
       messages,
       successMember,
       successAdmin,
+      isMember,
+      isAdmin
     })
   } catch (err) {
     return next(err)

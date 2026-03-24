@@ -18,8 +18,11 @@
   <!-- Menu -->
   <ul class="menu">
     <li class="menu__item"><a href="/messages">Message Board</a></li>
-    <li><a class="menu__link link link--cta" href="/club">Join The Circle</a></li>
+    <!-- <li><a class="menu__link link link--cta" href="/club">Join The Circle</a></li> -->
     <% if(locals.currentUser) { %>
+      <% if (!currentUser.is_member) { %>
+        <li><a class="menu__link link link--cta" href="/club">Join The Circle</a></li>
+      <% } %>
       <li><a class="menu__link" href="/messages/new">New Message</a></li>
       <li class="menu__item"><a class="menu__link" href=""><%= currentUser.username %></a></li>
       <li>
