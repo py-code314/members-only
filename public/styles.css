@@ -257,6 +257,7 @@ a {
 .link--cta {
   background-color: var(--clr-accent, royalblue);
   color: var(--clr-white, white);
+  font-family: var(--ff-secondary), sans-serif;
 }
 
 .link--login {
@@ -323,7 +324,9 @@ a {
   height: 100%;
 }
 
-.messages {
+.messages,
+.error,
+.success__msg {
   padding: var(--space-32, 2rem) var(--space-128, 8rem);
   display: grid;
   gap: var(--space-24, 1.5rem);
@@ -538,14 +541,24 @@ hr {
   font-family: var(--ff-secondary), sans-serif;
 }
 
-.error {
+/* .error {
   padding: var(--space-16, 1rem);
-}
+} */
 
 .error__code {
-  font-style: var(--fs-24, 1.5rem);
+  font-size: var(--fs-64, 4rem);
 }
 
 .error__title {
+  font-size: var(--fs-40, 2.5rem);
+}
+
+.error__message {
+  font-size: var(--fs-24, 1.5rem);
+}
+
+.link--home {
   font-size: var(--fs-20, 1.25rem);
+  justify-self: start;
+  margin-block-start: var(--space-16, 1rem);
 }
