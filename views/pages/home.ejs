@@ -13,7 +13,7 @@
       <% } %>
 
       <!-- Show success message -->
-      <% if(locals.successMember.length > 0 || locals.successAdmin.length > 0) { %>
+      <% if(locals.successMember || locals.successAdmin) { %>
         <%- include('../partials/success.ejs') %>
       <% }  %>
 

@@ -14,6 +14,11 @@ const validatePassphrase = [
 
 /* Show join club form */
 async function club_get(req, res) {
+  // User is already logged in
+  if (req.user.is_member) {
+    return res.redirect('/')
+  }
+
   res.render('pages/club', {
     title: 'The Inner Circle',
   })
