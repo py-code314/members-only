@@ -1,5 +1,5 @@
-const AuthenticationError = require("../errors/authenticationError")
-const AuthorizationError = require("../errors/authorizationError")
+const AuthenticationError = require('../errors/authenticationError')
+const AuthorizationError = require('../errors/authorizationError')
 
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {

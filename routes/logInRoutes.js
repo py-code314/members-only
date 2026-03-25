@@ -1,12 +1,8 @@
 const express = require('express')
 const logInRouter = express.Router()
 
-const {
-  log_in_get,
-  log_in_post,
-} = require('../controllers/logInController')
+const { log_in_get, log_in_post } = require('../controllers/logInController')
 const passport = require('passport')
-
 
 // Log in routes
 logInRouter.get('/', log_in_get)

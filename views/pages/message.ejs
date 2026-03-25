@@ -11,6 +11,7 @@
       <div class="wrapper">
         <div class="new-msg">
           <h2>New Message</h2>
+
           <!-- Show errors -->
           <% if(locals.errors) { %>
             <%- include('../partials/errors.ejs') %>
@@ -30,6 +31,7 @@
                 required
                  />
             </div>
+
             <div class="form__control">
               <label class="form__label" for="content">Message</label>
               <textarea
@@ -42,6 +44,7 @@
                 value="<%= locals.message?.content || '' %>"
                 required ></textarea>
             </div>
+            
             <button class="btn btn--cta btn--form" type="submit">Add Message</button>
           </form>
         </div>

@@ -1,11 +1,6 @@
 /* Imports */
 const bcrypt = require('bcryptjs')
-const {
-  body,
-  validationResult,
-  matchedData,
-  oneOf,
-} = require('express-validator')
+const { body, validationResult, matchedData } = require('express-validator')
 const { findUserByUsername, addUser } = require('../db/queries/users')
 
 /* Error messages */
@@ -117,6 +112,7 @@ const sign_up_post = [
 
       res.redirect('/logIn')
     } catch (err) {
+      console.error(err)
       return next(err)
     }
   },

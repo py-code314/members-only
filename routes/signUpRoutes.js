@@ -7,9 +7,3 @@ signUpRouter.get('/', sign_up_get)
 signUpRouter.post('/', sign_up_post)
 
 module.exports = signUpRouter
-
-
-
-
-
-

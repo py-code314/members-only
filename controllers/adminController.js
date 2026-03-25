@@ -30,7 +30,6 @@ const admin_post = [
   validatePasscode,
 
   async (req, res, next) => {
-
     // Validate request
     const errors = validationResult(req)
 
@@ -58,6 +57,7 @@ const admin_post = [
 
       res.redirect('/')
     } catch (err) {
+      console.error(err)
       return next(err)
     }
   },

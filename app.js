@@ -4,7 +4,6 @@ const session = require('express-session')
 const passport = require('passport')
 const pool = require('./db/pool')
 const pgStore = require('connect-pg-simple')(session)
-// const indexRouter = require('./routes/indexRoutes')
 const signUpRouter = require('./routes/signUpRoutes')
 const logInRouter = require('./routes/logInRoutes')
 const homeRouter = require('./routes/homeRoutes')
@@ -62,7 +61,6 @@ app.use(
  */
 
 require('./config/passport')
-// app.use(passport.initialize());
 app.use(passport.session())
 
 /**
@@ -74,10 +72,8 @@ app.use((req, res, next) => {
   next()
 })
 
-// app.use('/', indexRouter)
 app.use('/signUp', signUpRouter)
 app.use('/logIn', logInRouter)
-// app.use('/home', homeRouter)
 app.use('/', homeRouter)
 app.use('/logOut', logOutRouter)
 app.use('/messages', messagesRouter)

@@ -19,8 +19,11 @@ async function log_in_get(req, res) {
 
   // User not logged in
   const messages = req.session.messages || []
-  const success = messages.filter(message => message.includes('established'))
-  const errors = messages.filter(message => !message.includes('established')).map((message) => ({ msg: message }))
+  const success = messages.filter((message) => message.includes('established'))
+  const errors = messages
+    .filter((message) => !message.includes('established'))
+    .map((message) => ({ msg: message }))
+
   req.session.messages = []
 
   res.render('pages/logIn', {

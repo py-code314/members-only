@@ -3,7 +3,6 @@ const LocalStrategy = require('passport-local').Strategy
 const pool = require('../db/pool')
 const bcrypt = require('bcryptjs')
 
-
 /* Verify username and password before logging in */
 const verifyCallback = async (username, password, done) => {
   try {
@@ -11,8 +10,8 @@ const verifyCallback = async (username, password, done) => {
       'SELECT * FROM users WHERE username = $1',
       [username],
     )
-    const user = rows[0]
 
+    const user = rows[0]
     if (!user) {
       return done(null, false, { message: 'Incorrect Username' })
     }
@@ -22,6 +21,7 @@ const verifyCallback = async (username, password, done) => {
       // Passwords don't match
       return done(null, false, { message: 'Incorrect Password' })
     }
+
     // Username and password match
     return done(null, user)
   } catch (err) {

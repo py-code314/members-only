@@ -1,11 +1,7 @@
-// const pool = require('./pool')
 const { Client } = require('pg')
 const { argv } = require('node:process')
 
 const SQL = `
-/* DEVELOPMENT PURPOSE ONLY */
-DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS messages CASCADE;
 
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
@@ -32,8 +28,6 @@ CREATE TABLE IF NOT EXISTS messages (
 );
 `
 
-
-
 /* Create tables in db */
 async function main() {
   console.log('Creating tables...')
@@ -48,4 +42,3 @@ async function main() {
 }
 
 main()
-

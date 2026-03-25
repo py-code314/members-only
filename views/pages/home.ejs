@@ -8,24 +8,28 @@
 
     <!-- Main content-->
     <main class="main">
-      <div >
+      <div>
+
         <% if(!locals.currentUser) { %>
           <%- include('../partials/hero.ejs') %>
         <% } %>
+
         <!-- Show success message -->
         <% if(locals.successMember || locals.successAdmin || locals.isMember || locals.isAdmin) { %>
           <%- include('../partials/success.ejs') %>
         <% }  %>
+
         <div class="messages">
           <h2 class="messages__sub-title" >Recent Posts</h2>
+
           <% if (locals.messages) { %>
-            <!-- <h3>Messages</h3> -->
             <% if(messages.length > 0) { %>
               <ul class="messages__list">
               <% messages.forEach(message => { %>
                 <li class="message">
                   <div class="message__header">
                     <h3 class="message__title"><%= message.title %></h3>
+
                     <% if(locals.currentUser) { %>
                       <% if(currentUser.is_admin) { %>
                         <!-- Delete message -->
@@ -35,37 +39,39 @@
                       <% } %>
                     <% } %>
                   </div>
+
                   <hr>
+
                   <p class="message__item">
                     <span class="message__label">Message</span>
                     <span class="message__text"><%= message.content %></span>
                   </p>
+
                   <% if(locals.currentUser) { %>
                     <% if(currentUser.is_member) { %>
-                    <div class="message__item">
-                      <p class="message__label">Author</p>
-                      <div class="message__text message__author-container">
-                        <p class="message__author"><%= message.fullName %></p>
-                        <p>
-                          <% if (message.admin) { %>
-                            <span class="message__badge message__badge--admin">Admin</span>
-                          <% } else if (message.member) { %>
-                            <span class="message__badge message__badge--member">Member</span>
-                          <% } else { %>
-                            <span class="message__badge message__badge--user">User</span>
-                          <% } %>
-                        </p>
+                      <div class="message__item">
+                        <p class="message__label">Author</p>
+                        <div class="message__text message__author-container">
+                          <p class="message__author"><%= message.fullName %></p>
+                          <p>
+                            <% if (message.admin) { %>
+                              <span class="message__badge message__badge--admin">Admin</span>
+                            <% } else if (message.member) { %>
+                              <span class="message__badge message__badge--member">Member</span>
+                            <% } else { %>
+                              <span class="message__badge message__badge--user">User</span>
+                            <% } %>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <% const date = new Date(message.date_added) %>
-                    <p class="message__item">
-        
+
+                      <% const date = new Date(message.date_added) %>
+                      <p class="message__item">
                         <span class="message__label">Created</span>
                         <time class="message__text" datetime="<%= date.toISOString().split('T')[0] %>"><%= date.toLocaleString() %></time>
-                      </time>
-                    </p>
-        
-                  <% } %>
+                        </time>
+                      </p>
+                    <% } %>
                   <% } %>
                 </li>
               <% }) %>

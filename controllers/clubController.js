@@ -32,7 +32,6 @@ const club_post = [
   validatePassphrase,
 
   async (req, res, next) => {
-
     // Validate request
     const errors = validationResult(req)
 
@@ -59,8 +58,8 @@ const club_post = [
       ]
 
       res.redirect('/')
-      // ? render home page with congrats message
     } catch (err) {
+      console.error(err)
       return next(err)
     }
   },

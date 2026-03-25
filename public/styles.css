@@ -65,6 +65,7 @@ ul {
 /* Remove underlines from links */
 a {
   text-decoration: none;
+  color: var(--clr-black, black);
 }
 
 /* ===================
@@ -156,14 +157,7 @@ a {
   --clr-gray-1: #ffffff;
   --clr-gray-2: #eeeeee;
   --clr-gray-3: #d5d5d5;
-  /*--clr-gray-4: #bbbbbb;
-  --clr-gray-5: #a1a1a1;
-  --clr-gray-6: #888888; */
   --clr-gray-7: #6f6f6f;
-  /* --clr-gray-8: #555555;
-  --clr-gray-9: #3c3c3c;
-  --clr-gray-10: #222222; */
-
   --clr-white: #fff;
   --clr-black: #000;
   --clr-red: #dc143c;
@@ -192,7 +186,6 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  
 }
 
 .wrapper {
@@ -200,13 +193,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.wrapper--msgs {
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  text-align: left;
 }
 
 /* Make header sticky on top of the page */
@@ -232,10 +218,6 @@ body {
 .title {
   font-family: var(--ff-header), sans-serif;
   font-size: var(--fs-48, 3rem);
-}
-
-a {
-  color: var(--clr-black, black);
 }
 
 .title--accent {
@@ -264,6 +246,23 @@ a {
   background-color: var(--clr-gray-3, lightgray);
 }
 
+.link--join {
+  font-weight: var(--fw-bold, 700);
+  align-self: flex-start;
+}
+
+.link--admin {
+  margin-inline-start: auto;
+  font-size: var(--fs-16, 1rem);
+  text-decoration: underline;
+}
+
+.link--home {
+  font-size: var(--fs-20, 1.25rem);
+  justify-self: start;
+  margin-block-start: var(--space-16, 1rem);
+}
+
 /* Remove user agent button styles */
 .btn {
   border: transparent;
@@ -282,6 +281,10 @@ a {
 .btn--logout {
   padding-block: var(--space-10, 0.625rem);
   background-color: var(--clr-gray-3, lightgray);
+}
+
+.btn--form {
+  margin-block-start: var(--space-16, 1rem);
 }
 
 .hero {
@@ -308,11 +311,6 @@ a {
   font-size: var(--fs-48, 3rem);
 }
 
-.link--join {
-  font-weight: var(--fw-bold, 700);
-  align-self: flex-start;
-}
-
 .hero__image-container {
   width: 28.125rem;
   height: 28.125rem;
@@ -333,7 +331,6 @@ a {
 }
 
 .sub-title {
-  /* margin-block-end: var(--space-8, 0.625rem); */
   font-size: var(--fs-32, 2rem);
   text-align: center;
 }
@@ -410,26 +407,6 @@ hr {
   background-color: var(--clr-gray-3, lightgray);
 }
 
-.footer {
-  padding: var(--space-12, 0.75rem) var(--space-32, 2rem);
-  font-size: var(--fs-20);
-  font-weight: var(--fw-bold, 700);
-  background-color: var(--clr-gray-2, gainsboro);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.link--admin {
-  margin-inline-start: auto;
-  font-size: var(--fs-16, 1rem);
-}
-
-.link--admin {
-  text-decoration: underline;
-}
-
 .signup,
 .login,
 .club,
@@ -446,14 +423,9 @@ hr {
   gap: var(--space-16, 1rem);
 }
 
-
-
-.admin__description,
-.admin__form {
-  display: grid;
-  gap: var(--space-16, 1rem);
+.club--wide {
+  width: 700px;
 }
-
 
 .signup__text {
   margin-block-end: var(--space-12, 0.75rem);
@@ -463,8 +435,9 @@ hr {
   margin-block-end: 0;
 }
 
-
-.form {
+.form,
+.admin__description,
+.admin__form-container {
   display: grid;
   gap: var(--space-16, 1rem);
 }
@@ -506,17 +479,7 @@ hr {
   margin-block-end: var(--space-8, 0.5rem);
 }
 
-.btn--form {
-  margin-block-start: var(--space-16, 1rem);
-}
-
-/* .login__header {
-  margin-block-end: var(--space-32, 2rem);
-  text-align: center;
-} */
-
 .errors {
-  /* padding: var(--space-8, 0.5rem); */
   color: var(--clr-red, red);
   font-family: var(--ff-tertiary), sans-serif;
 }
@@ -524,12 +487,6 @@ hr {
 .errors__list {
   list-style-type: disc;
   padding-inline-start: var(--space-16, 1rem);
-  /* color: var(--clr-red, red);
-  font-family: var(--ff-tertiary), sans-serif; */
-}
-
-.club--wide {
-  width: 700px;
 }
 
 .membership__text {
@@ -540,10 +497,6 @@ hr {
   font-size: var(--fs-24, 1.5rem);
   font-family: var(--ff-secondary), sans-serif;
 }
-
-/* .error {
-  padding: var(--space-16, 1rem);
-} */
 
 .error__code {
   font-size: var(--fs-64, 4rem);
@@ -557,8 +510,12 @@ hr {
   font-size: var(--fs-24, 1.5rem);
 }
 
-.link--home {
+.footer {
+  padding: var(--space-12, 0.75rem) var(--space-32, 2rem);
   font-size: var(--fs-20, 1.25rem);
-  justify-self: start;
-  margin-block-start: var(--space-16, 1rem);
+  font-weight: var(--fw-bold, 700);
+  background-color: var(--clr-gray-2, gainsboro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

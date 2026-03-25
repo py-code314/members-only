@@ -1,17 +1,22 @@
 const { getAllMessages } = require('../db/queries/messages')
+
 /* Show home page */
 async function home_page_get(req, res, next) {
   try {
     const sessionMsgs = req.session.messages || []
+
     const successMember = sessionMsgs.filter((message) =>
       message.includes('member'),
     )
-
     const successAdmin = sessionMsgs.filter((message) =>
       message.includes('oversight'),
     )
-    const isMember = sessionMsgs.filter(message => message.includes('already'))
-    const isAdmin = sessionMsgs.filter(message => message.includes('Level Alpha'))
+    const isMember = sessionMsgs.filter((message) =>
+      message.includes('already'),
+    )
+    const isAdmin = sessionMsgs.filter((message) =>
+      message.includes('Level Alpha'),
+    )
 
     req.session.messages = []
 
@@ -23,9 +28,10 @@ async function home_page_get(req, res, next) {
       successMember,
       successAdmin,
       isMember,
-      isAdmin
+      isAdmin,
     })
   } catch (err) {
+    console.error(err)
     return next(err)
   }
 }

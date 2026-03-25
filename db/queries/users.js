@@ -2,32 +2,30 @@ const pool = require('../pool')
 
 /* Find user by username */
 async function findUserByUsername(username) {
-  const { rows } = await pool.query(
-    "SELECT * FROM users WHERE username = $1",
-    [username],
-  )
+  const { rows } = await pool.query('SELECT * FROM users WHERE username = $1', [
+    username,
+  ])
   return rows[0]
 }
 
 /* Add new user to db */
 async function addUser(username, firstName, lastName, hashedPassword) {
   await pool.query(
-    "INSERT INTO users (username, first_name, last_name, hash) VALUES ($1, $2, $3, $4)",
-    [username, firstName, lastName, hashedPassword]
+    'INSERT INTO users (username, first_name, last_name, hash) VALUES ($1, $2, $3, $4)',
+    [username, firstName, lastName, hashedPassword],
   )
 }
 
 /* Update user's member status */
 async function updateMemberStatus(id) {
-  await pool.query(
-    "UPDATE users SET is_member = $1 WHERE id = $2", [true, id]
-  )
+  await pool.query('UPDATE users SET is_member = $1 WHERE id = $2', [true, id])
 }
 
 /* Update user's admin status */
 async function updateAdminStatus(id) {
   await pool.query(
-    "UPDATE users SET is_member = $1, is_admin = $2 WHERE id = $3", [true, true, id]
+    'UPDATE users SET is_member = $1, is_admin = $2 WHERE id = $3',
+    [true, true, id],
   )
 }
 

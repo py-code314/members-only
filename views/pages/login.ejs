@@ -9,13 +9,15 @@
     <!-- Main content-->
     <main class="main">
       <div class="wrapper">
+
         <!-- Show success message -->
         <% if(locals.success.length > 0) { %>
           <%- include('../partials/success.ejs') %>
         <% }  %>
+
         <div class="login">
-        
           <h2 class="login__header sub-title">Welcome Back</h2>
+
           <!-- Show errors -->
           <% if(locals.errors.length > 0) { %>
             <%- include('../partials/errors.ejs') %>
@@ -36,6 +38,7 @@
                 autofocus
                  />
             </div>
+
             <div class="form__control">
               <label class="form__label" for="password">Password</label>
               <input
@@ -47,6 +50,7 @@
                 required
                  />
             </div>
+            
             <button class="btn btn--cta btn--form" type="submit">Log In</button>
           </form>
         </div>

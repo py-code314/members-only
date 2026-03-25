@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch app.js",
-    "create": "node db/database.js postgresql://ketu:@localhost:5432/members_only"
+    "start": "node --watch app.js"
   },
   "keywords": [],
   "author": "",
