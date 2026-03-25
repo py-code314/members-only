@@ -117,5 +117,5 @@ app.listen(PORT, (error) => {
   if (error) {
     throw error
   }
-  console.log(`App Inventory Application - listening on port ${PORT}!`)
+  console.log(`App Members Only - listening on port ${PORT}!`)
 })

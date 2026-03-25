@@ -65,11 +65,11 @@
                         </div>
                       </div>
 
-                      <% const date = new Date(message.date_added) %>
                       <p class="message__item">
                         <span class="message__label">Created</span>
-                        <time class="message__text" datetime="<%= date.toISOString().split('T')[0] %>"><%= date.toLocaleString() %></time>
-                        </time>
+                        <span class="message__date" data-date="<%= message.date_added.toISOString() %>">
+                           <%= message.date_added.toUTCString() %>
+                        </span>
                       </p>
                     <% } %>
                   <% } %>
@@ -86,5 +86,16 @@
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
+
+
   </body>
+
+  <script>
+
+  const el = document.querySelector('.message__date')
+  const dateISO = el.getAttribute('data-date')
+  // Convert the date into local date and time
+  el.textContent = new Date(dateISO).toLocaleString()
+  
+  </script>
 </html>

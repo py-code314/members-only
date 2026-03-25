@@ -382,7 +382,8 @@ hr {
   font-family: var(--ff-tertiary), sans-serif;
 }
 
-.message__text {
+.message__text,
+.message__date {
   flex: 5;
 }
 
