@@ -232,6 +232,7 @@ body {
   font-family: var(--ff-secondary), sans-serif;
 }
 
+/* Link styles */
 .link {
   padding: var(--space-12, 0.75rem) var(--space-16, 1rem);
   border-radius: var(--bd-radius-medium, 0.625rem);
@@ -288,6 +289,7 @@ body {
   margin-block-start: var(--space-16, 1rem);
 }
 
+/* Styles for hero section */
 .hero {
   background-color: var(--clr-hero, seashell);
   padding: var(--space-96, 6rem) var(--space-144, 10rem);
@@ -336,6 +338,7 @@ body {
   text-align: center;
 }
 
+/* Style messages */
 .messages__list {
   display: flex;
   flex-direction: column;
@@ -389,6 +392,7 @@ hr {
   align-items: center;
 }
 
+/* Add badge and color based on user status */
 .message__badge {
   padding: var(--space-4, 0.25rem) var(--space-8, 0.5rem);
   border-radius: var(--bd-radius-small, 00.3125rem);
@@ -408,6 +412,7 @@ hr {
   background-color: var(--clr-gray-3, lightgray);
 }
 
+/* Style forms */
 .signup,
 .login,
 .club,
@@ -480,6 +485,7 @@ hr {
   margin-block-end: var(--space-8, 0.5rem);
 }
 
+/* Style errors */
 .errors {
   color: var(--clr-red, red);
   font-family: var(--ff-tertiary), sans-serif;
@@ -499,6 +505,7 @@ hr {
   font-family: var(--ff-secondary), sans-serif;
 }
 
+/* Style error page */
 .error__code {
   font-size: var(--fs-64, 4rem);
 }
@@ -511,6 +518,7 @@ hr {
   font-size: var(--fs-24, 1.5rem);
 }
 
+/* Style footer */
 .footer {
   padding: var(--space-12, 0.75rem) var(--space-32, 2rem);
   font-size: var(--fs-20, 1.25rem);
