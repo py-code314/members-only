@@ -1,11 +1,13 @@
 <div class="success">
-  <% if (successMember.length > 0) { %>
+  <% if (locals.successUser && successUser.length > 0) { %>
+    <p class="success__msg"><%= successUser[0] %></p>
+  <% } else if (locals.successMember && successMember.length > 0) { %>
     <p class="success__msg"><%= successMember[0] %></p>
-  <% } else if(successAdmin.length > 0) { %>
+  <% } else if(locals.successAdmin && successAdmin.length > 0) { %>
     <p class="success__msg"><%= successAdmin[0] %></p>
-  <% } else if(isMember.length > 0) { %> 
+  <% } else if(locals.isMember && isMember.length > 0) { %> 
     <p class="success__msg"><%= isMember[0] %></p>
-  <% } else if(isAdmin.length > 0) { %> 
+  <% } else if(locals.isAdmin && isAdmin.length > 0) { %> 
     <p class="success__msg"><%= isAdmin[0] %></p>
   <% } %>
 </div>
