@@ -1,3 +1,4 @@
+/* Throw custom error if incorrect login credentials entered */
 class AuthenticationError extends Error {
   constructor(
     message = 'Your signature was not detected. Please establish an active session to contribute to the discussion.',

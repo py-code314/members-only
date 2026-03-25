@@ -8,6 +8,7 @@ const {
 } = require('../controllers/messagesController')
 const { isAuth, isAdmin } = require('../routes/auth')
 
+/* Messages routes */
 // Messages route
 messagesRouter.get('/', messages_get)
 

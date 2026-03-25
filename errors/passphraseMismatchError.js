@@ -1,3 +1,4 @@
+/* Throw error if passphrase doesn't match */
 class PassphraseMismatchError extends Error {
   constructor(
     message = 'The passphrase provided was not recognized. Access to the vault remains encrypted.',

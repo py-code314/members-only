@@ -1,6 +1,7 @@
 const AuthenticationError = require('../errors/authenticationError')
 const AuthorizationError = require('../errors/authorizationError')
 
+/* Check for valid user credentials */
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
@@ -9,6 +10,7 @@ const isAuth = (req, res, next) => {
   }
 }
 
+/* Check for valid user before showing member form */
 const authenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
@@ -20,6 +22,7 @@ const authenticated = (req, res, next) => {
   }
 }
 
+/* Check for user's admin status */
 const isAdmin = (req, res, next) => {
   if (req.isAuthenticated() && req.user.is_admin) {
     next()

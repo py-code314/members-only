@@ -12,6 +12,7 @@ const verifyCallback = async (username, password, done) => {
     )
 
     const user = rows[0]
+    // User doesn't exist
     if (!user) {
       return done(null, false, { message: 'Incorrect Username' })
     }

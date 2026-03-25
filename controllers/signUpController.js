@@ -19,13 +19,14 @@ const validateUser = [
     .withMessage(`Username ${emptyErr}`)
     .bail()
     .custom(async (username) => {
+      // Username is email address
       if (username.includes('@')) {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         if (!emailRegex.test(username)) {
           throw new Error('Please enter a valid email address.')
         }
       }
-
+      // Throw error if username already exists
       const user = await findUserByUsername(username)
       if (user) {
         throw new Error(`Username ${existsErr}`)

@@ -1,3 +1,4 @@
+/* Throw error if passcode doesn't match */
 class PasscodeMismatchError extends Error {
   constructor(
     message = 'The provided passcode does not match our records. Access to this sector is restricted to verified operatives only.',

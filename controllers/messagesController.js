@@ -60,6 +60,7 @@ const message_post = [
   },
 ]
 
+/* Show all messages */
 async function messages_get(req, res, next) {
   try {
     const messages = await getAllMessages()

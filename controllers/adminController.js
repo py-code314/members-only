@@ -11,8 +11,10 @@ const emptyErr = 'can not be empty.'
 const validatePasscode = [
   body('passcode').trim().notEmpty().withMessage(`Passcode ${emptyErr}`),
 ]
+
 /* Show admin form */
 async function admin_get(req, res) {
+  // User is already an admin
   if (req.user.is_admin) {
     req.session.messages = [
       'Your Level Alpha clearance is already active. The mainframe remains under your control.',
@@ -46,6 +48,7 @@ const admin_post = [
       const { passcode } = matchedData(req)
       const userId = req.user.id
 
+      // Throw custom error if passcode doesn't match
       if (passcode !== process.env.SECRET_PASSCODE) {
         throw new PasscodeMismatchError()
       }

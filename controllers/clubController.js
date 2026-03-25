@@ -48,6 +48,7 @@ const club_post = [
       const { passphrase } = matchedData(req)
       const userId = req.user.id
 
+      // Throw custom error if passphrase doesn't match
       if (passphrase !== process.env.SECRET_PASSPHRASE) {
         throw new PassphraseMismatchError()
       }

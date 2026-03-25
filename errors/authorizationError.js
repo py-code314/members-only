@@ -1,3 +1,4 @@
+/* Throw custom error if user isn't an admin */
 class AuthorizationError extends Error {
   constructor(
     message = 'Access denied. This action requires administrative oversight and higher-level responsibility.',
