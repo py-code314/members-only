@@ -92,10 +92,12 @@
 
   <script>
 
-  const el = document.querySelector('.message__date')
-  const dateISO = el.getAttribute('data-date')
-  // Convert the date into local date and time
-  el.textContent = new Date(dateISO).toLocaleString()
+  const dates = document.querySelectorAll('.message__date')
+  dates.forEach(el => {
+    const dateISO = el.getAttribute('data-date')
+    // Convert the date into local date and time
+    el.textContent = new Date(dateISO).toLocaleString()
+  })
   
   </script>
 </html>
