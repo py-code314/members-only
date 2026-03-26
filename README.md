@@ -13,7 +13,7 @@ This is a solution to the [Members Only Project](https://www.theodinproject.com/
     - [Screenshots](#screenshots)
     - [Links](#links)
   - [Credits](#credits)
-    - [Icons](#icons)
+    - [Icons \& Images](#icons--images)
     - [Fonts](#fonts)
     - [Useful resources](#useful-resources)
 
@@ -36,6 +36,33 @@ Members Only is a forum like message board where you can connect with others, ex
 
 ### Screenshots
 
+<table>
+  <tr>
+    <td align="center">
+      <img src="./public/images/visitor.png" alt="Visitor homepage" width="400">
+      <br>
+      <em>Visitor</em>
+    </td>
+    <td align="center">
+      <img src="./public/images/user.png" alt="User homepage" width="400">
+      <br>
+      <em>User </em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./public/images/member.png" alt="Member homepage" width="400">
+      <br>
+      <em>Member</em>
+    </td>
+    <td align="center">
+      <img src="./public/images/admin.png" alt="Admin homepage" width="400">
+      <br>
+      <em>Admin</em>
+    </td>
+  </tr>
+</table>
+
 
 
 
@@ -48,9 +75,10 @@ Members Only is a forum like message board where you can connect with others, ex
 ## Credits
 
 
-### Icons
+### Icons & Images
 
 - All icons are from [SVG Repo](https://www.svgrepo.com/) 
+- Illustration is from [Storyset](https://storyset.com/illustration/online-world/cuate)
 
 
 ### Fonts
